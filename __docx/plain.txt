@@ -1,0 +1,175 @@
+﻿首网页包括两个网页入口：一是自动计算快递费用，网址为
+https://costcalculate.netlify.app/
+，已经搭建好。另一个是
+shipping route cost & LT automatic sorting
+，网址为
+。还需要搭建另一个网页入口：仓储费用计算，需要搭建。
+搭建的要求如下（有点类似于
+shipping route cost & LT automatic sorting
+的搭建，但是节点较少）：
+Shipping MAP
+可视化，根据草图创建实际连接。此
+MAP
+可进行修改
+/
+更新，具体修改
+/
+更新依据在后文给出。
+用户根据节点两端的地点（
+location
+）和路线名称（节点）进行整体路线选择。分为节点选择和
+location
+选择，以选择框加指向箭头的方式显示在网页当中，节点显示在两个
+location
+中间的连接线上。如果先选择
+location
+，则会自动显示节点；如果先选择节点，
+location
+很可能要再进行选择，因为一个节点里面可能对应多个
+location
+。
+选择完节点和
+location
+以后，根据选择，把节点下面涉及到的需要输入
+/
+选择的基本信息列表显示出来供用户输入
+/
+选择。
+把输入
+/
+选择以后的节点费用进行列表显示并显示最终的
+TOTAL Cost(HKD)
+。
+识别表格“
+WH Cost
+”。标题通常在第二行，建议搜寻前
+5
+行查找标题。找到
+From
+和
+To
+标题下面内容对应的具体
+location
+。此为第
+2
+点中的数据选择来源。节点按照表格出现的先后行分别进行
+A
+、
+B
+、
+C...
+的命名。
+根据第
+2
+点用户的选择，把
+Own
+标题到
+total invoice value (RMB)
+标题之间有数据的
+列显示
+出来（
+From
+、
+To
+、
+Method
+和
+TOTAL Cost(HKD)
+标题和内容不显示），需要显示标题和具体的内容，显示的位置为节点对应的下方。如果识别到内容为
+空或者
+为
+N/A
+则不显示该列。内容以下拉菜单选择或者输入的方式供用户提供数据。等用户选择
+/
+输入完毕以后，选择的在工作表中存在对应行，查看选择行对应的
+TOTAL Cost(HKD)
+列对应的结果；输入的在工作表中没有对应行时，判断输入的是否为除了
+Import Truck times
+、
+Export Truck times
+、
+pallet
+、
+CBM
+和
+Month Qty
+列内容
+对应不上，其它
+列内容
+都能对应上，如果是，则根据用户输入的值进行
+TOTAL Cost(HKD)
+计算。计算方式参考
+TOTAL Cost(HKD)
+列里面的计算公式，比如公式为
+=(SUM(P4:V4)+K4*O4)*1.1
+，则需要把每一个涉及到的单元格都看一遍，比如
+P4
+里面可能也有公式。把
+Import Truck times
+、
+Export Truck times
+、
+pallet
+、
+CBM
+和
+Month Qty
+列
+原有值
+替换成用户输入的值进行
+TOTAL Cost(HKD)
+计算即可得出结果，如果
+用用户
+输入的值进行计算，则费用进行列表显示的内容也需要更新。
+以上所有操作都要有日志记录，涉及到计算的，把计算数据和公式进行记录，方便纠错。
+所有新建文件或文件改动都在
+WH Cost
+文件夹内操作。
+网页输入和表格匹配时，如果没有匹配项，此时除开
+Import Truck times
+、
+Export Truck times
+、
+pallet
+、
+CBM
+和
+Month Qty
+标题这几项的内容再次进行匹配，如果能够匹配上，此时把网页输入的这几项带入表格中的
+E2E Cost
+列对应匹配行的计算公式中。
+Calculate Total Warehouse Cost
+按钮太大了，改小一点，参考
+Shipping Route Cost & LT System
+的
+Run Total E2E Calculation
+按钮设计。
+TOTAL COST (HKD)
+下面的内容前不要显示
+$
+。网页输入和表格匹配时，如果没有匹配项，此时除开
+Import Truck times
+、
+Export Truck times
+、
+pallet
+、
+CBM
+和
+Month Qty
+标题这几项的内容再次进行匹配，如果能够匹配上，此时把网页输入的这几项带入表格中的
+E2E Cost
+列对应匹配行的计算公式中。
+当我一开始点击
+BNODE
+时，下面出现的选项没问题，而当我再次进行
+WH type
+或者联合其他字段一起切换时就和一开始显示的不一样了，修复这个问题
+From 
+→
+ To
+和
+Node
+下方的字段要可以进行输入修改或者小三角进行全部选项的下
+拉选择
+才行

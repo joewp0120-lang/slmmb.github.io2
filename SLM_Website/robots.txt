@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://slmmb.com/sitemap.xml
