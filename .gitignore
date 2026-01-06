@@ -1,0 +1,4 @@
+google_maps_data/
+__docx/
+*.pyc
+__pycache__/
