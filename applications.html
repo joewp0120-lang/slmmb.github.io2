@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+        if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+            location.replace('https://' + location.hostname + location.pathname + location.search);
+        }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applications - Injection Molding, Blown Film, Extrusion | SLM</title>
     <meta name="description" content="Our masterbatches are used in various industries including Automotive, Household Appliances, Packaging Films, Pipes, and Wires & Cables. Compatible with PE, PP, ABS, PC, PS.">

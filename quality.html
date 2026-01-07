@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+        if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+            location.replace('https://' + location.hostname + location.pathname + location.search);
+        }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quality Control & Certifications | SLM Masterbatches</title>
     <meta name="description" content="We strictly adhere to ISO 9001 standards. Our quality control process ensures consistent color, dispersion, and mechanical properties for every batch of masterbatch.">

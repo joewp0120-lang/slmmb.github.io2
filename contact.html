@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+        if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+            location.replace('https://' + location.hostname + location.pathname + location.search);
+        }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Get a Free Quote for Masterbatches</title>
     <meta name="description" content="Contact SLM Masterbatches Co., Ltd. for inquiries, samples, and quotes. Based in Dongguan, China. Phone/WhatsApp: +86-18027593021. Email: salesl.dorothy@gmail.com.">

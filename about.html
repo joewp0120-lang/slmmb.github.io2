@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+        if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+            location.replace('https://' + location.hostname + location.pathname + location.search);
+        }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About SLM Masterbatches | Professional Manufacturer in China</title>
     <meta name="description" content="Learn about SLM Masterbatches Co., Ltd. Established in 2015, we are a leading ISO-certified manufacturer of plastic masterbatches in Dongguan, China.">
