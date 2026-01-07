@@ -39,11 +39,29 @@ This project is configured for the domain: `slmmb.com`
    - Under **Branch**, select `main` (or `master`) and folder `/ (root)`.
    - Click **Save**.
 
-4. **Custom Domain**:
+4. **Custom Domain & HTTPS (CRITICAL)**:
    - Scroll down to **Custom domain**.
    - It might already be filled with `slmmb.com` (because of the CNAME file).
    - If not, enter `slmmb.com` and click **Save**.
-   - Check the **Enforce HTTPS** box (wait for DNS to propagate if it's grayed out).
+   - **IMPORTANT**: Check the **Enforce HTTPS** box. 
+     - *Note: This checkbox saves automatically when clicked. There is no "Save" button for this specific option.*
+     - *If this is unchecked, users will see "Not Secure" warnings when submitting forms.*
+     - *If it is grayed out, wait up to 24 hours for the certificate to issue, then come back and check it.*
+
+### Troubleshooting: "Enforce HTTPS" is Grayed Out / Disabled
+
+If you cannot check the "Enforce HTTPS" box, it usually means GitHub is still processing your SSL certificate.
+
+1.  **Wait 24 Hours**: This is the most common fix. The certificate issuance process can take time.
+2.  **Check DNS Records**: Ensure your domain registrar (where you bought the domain) has the following **A Records**:
+    *   `185.199.108.153`
+    *   `185.199.109.153`
+    *   `185.199.110.153`
+    *   `185.199.111.153`
+3.  **Re-trigger the Process**: 
+    *   Clear the "Custom domain" field in GitHub Settings and click **Save**.
+    *   Wait 1 minute.
+    *   Enter `slmmb.com` again and click **Save**. This forces GitHub to re-check your DNS.
 
 5. **DNS Setup (At your Domain Registrar)**:
    - Go to where you bought your domain (Aliyun, Tencent, GoDaddy, etc.).
