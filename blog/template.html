@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+            location.replace('https://' + location.hostname + location.pathname + location.search);
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- REPLACE: Title of your blog post -->
+    <title>Blog Post Title | SLM Masterbatches</title>
+    <!-- REPLACE: Short description for SEO -->
+    <meta name="description" content="Short description of the blog post content.">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="lang-en">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">SLM Masterbatches</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html"><span class="lang-en">Home</span><span class="lang-cn">首页</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../products.html"><span class="lang-en">Products</span><span class="lang-cn">产品</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../applications.html"><span class="lang-en">Applications</span><span class="lang-cn">应用</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../quality.html"><span class="lang-en">Quality</span><span class="lang-cn">质量</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html"><span class="lang-en">About Us</span><span class="lang-cn">关于我们</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../news.html"><span class="lang-en">News & Blog</span><span class="lang-cn">新闻博客</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html"><span class="lang-en">Contact</span><span class="lang-cn">联系</span></a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-globe"></i> <span class="lang-en">EN</span><span class="lang-cn">CN</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item lang-switch" href="#" data-lang="en">English</a></li>
+                            <li><a class="dropdown-item lang-switch" href="#" data-lang="cn">中文 (Simplified)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a href="../contact.html" class="btn btn-quote"><span class="lang-en">Get a Quote</span><span class="lang-cn">获取报价</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-primary-custom text-white py-5 mt-5">
+        <div class="container text-center pt-5">
+            <!-- REPLACE: Blog Title Here -->
+            <h1><span class="lang-en">Blog Post Title</span><span class="lang-cn">博客文章标题</span></h1>
+            <!-- REPLACE: Date Here -->
+            <p class="lead"><i class="far fa-calendar-alt me-2"></i> January 1, 2026</p>
+        </div>
+    </header>
+
+    <!-- Blog Content -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow-sm border-0">
+                        <!-- REPLACE: Main Image Here -->
+                        <!-- Upload image to assets/images/blog/ and reference it here like ../assets/images/blog/your-image.jpg -->
+                        <img src="../assets/images/blog/placeholder.jpg" class="card-img-top" alt="Blog Image">
+                        
+                        <div class="card-body p-5">
+                            <!-- REPLACE: Your Content Here -->
+                            <article class="blog-content">
+                                <h3 class="mb-4"><span class="lang-en">Subtitle or Introduction</span><span class="lang-cn">副标题或简介</span></h3>
+                                
+                                <p><span class="lang-en">
+                                    Write your English content here. Paragraph 1.
+                                </span><span class="lang-cn">
+                                    在这里写中文内容。第一段。
+                                </span></p>
+
+                                <p><span class="lang-en">
+                                    Write your English content here. Paragraph 2.
+                                </span><span class="lang-cn">
+                                    在这里写中文内容。第二段。
+                                </span></p>
+
+                                <blockquote class="blockquote my-4 p-3 bg-light border-start border-4 border-primary">
+                                    <p class="mb-0"><span class="lang-en">A key quote or highlight from the article.</span><span class="lang-cn">文章中的关键引用或亮点。</span></p>
+                                </blockquote>
+
+                                <h5><span class="lang-en">Conclusion</span><span class="lang-cn">结论</span></h5>
+                                <p><span class="lang-en">
+                                    Final thoughts.
+                                </span><span class="lang-cn">
+                                    最后的想法。
+                                </span></p>
+                            </article>
+                            
+                            <hr class="my-5">
+                            
+                            <div class="text-center">
+                                <a href="../contact.html" class="btn btn-primary btn-lg"><span class="lang-en">Contact Us for More Info</span><span class="lang-cn">联系我们了解更多</span></a>
+                                <a href="../news.html" class="btn btn-outline-secondary btn-lg ms-2"><span class="lang-en">Back to News</span><span class="lang-cn">返回新闻</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>SLM Masterbatches</h5>
+                    <p><span class="lang-en">Professional plastic masterbatch manufacturer since 2015. Delivering quality, consistency, and innovation.</span><span class="lang-cn">自2015年以来的专业塑料色母粒制造商。提供质量、一致性和创新。</span></p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5><span class="lang-en">Quick Links</span><span class="lang-cn">快速链接</span></h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html"><span class="lang-en">Home</span><span class="lang-cn">首页</span></a></li>
+                        <li><a href="../products.html"><span class="lang-en">Products</span><span class="lang-cn">产品</span></a></li>
+                        <li><a href="../about.html"><span class="lang-en">About Us</span><span class="lang-cn">关于我们</span></a></li>
+                        <li><a href="../contact.html"><span class="lang-en">Contact</span><span class="lang-cn">联系我们</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5><span class="lang-en">Contact Info</span><span class="lang-cn">联系信息</span></h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> No.519 M Building, Dajingjiu Plastic Raw Material Market, MaiYuan Village, Changping Town, Dongguan City, Guangdong Province, China.</li>
+                        <li><i class="fas fa-phone me-2"></i> +86-18027593021</li>
+                        <li><i class="fas fa-envelope me-2"></i> salesl.dorothy@gmail.com</li>
+                    </ul>
+                    <div class="social-links mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/8618027593021" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2026 SLM Masterbatches Co., Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
