@@ -16,6 +16,29 @@ body {
 body.lang-en .lang-cn { display: none !important; }
 body.lang-cn .lang-en { display: none !important; }
 
+/* Hide Google Translate Toolbar */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0px !important;
+}
+#google_translate_element {
+    display: none;
+}
+/* Ensure tooltip is hidden if annoying */
+.goog-tooltip {
+    display: none !important;
+}
+.goog-tooltip:hover {
+    display: none !important;
+}
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important; 
+    box-shadow: none !important;
+}
+
 /* Navbar */
 .navbar {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
