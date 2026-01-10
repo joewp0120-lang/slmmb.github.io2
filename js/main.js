@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.googleTranslateElementInit = function() {
         new google.translate.TranslateElement({
             pageLanguage: 'en',
-            includedLanguages: 'en,zh-CN,fr,es,id,ar,pt,ru,ja,de',
+            includedLanguages: 'en,zh-CN,fr,es,id,ar,pt,ru,ja,de,hi,bn',
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
             autoDisplay: false
         }, 'google_translate_element');
