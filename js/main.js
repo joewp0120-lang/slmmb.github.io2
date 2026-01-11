@@ -131,4 +131,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // WhatsApp Floating Button Injection
+    (function() {
+        var whatsappLink = document.createElement('a');
+        whatsappLink.href = 'https://wa.me/8618027593021';
+        whatsappLink.className = 'whatsapp-float';
+        whatsappLink.target = '_blank';
+        whatsappLink.innerHTML = '<i class="fab fa-whatsapp whatsapp-icon"></i>';
+        document.body.appendChild(whatsappLink);
+    })();
 });
