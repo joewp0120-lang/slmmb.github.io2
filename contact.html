@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="lang-en">
 
@@ -120,11 +121,16 @@
                 <div class="col-lg-7">
                     <div class="bg-light p-5 rounded shadow-sm">
                         <h3 class="mb-4"><span class="lang-en">Send Us a Message</span><span class="lang-cn">给我们留言</span></h3>
-                        <form method="POST" action="https://formsubmit.co/salesl.dorothy@gmail.com">
-                            <!-- Disable Captcha -->
+                        <form id="contact-form" method="POST" action="https://formsubmit.co/salesl.dorothy@gmail.com">
+                            <!-- Disable FormSubmit Captcha (we use our own) -->
                             <input type="hidden" name="_captcha" value="false">
                             <!-- Success Page (Optional, redirect back to contact page or stay) -->
                             <input type="hidden" name="_next" value="https://slmmb.com/thank-you.html">
+                            <!-- Honeypot field: hidden from humans, visible to many bots -->
+                            <div class="d-none">
+                                <label>Leave this field empty</label>
+                                <input type="text" name="company_website" autocomplete="off" tabindex="-1">
+                            </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label"><span class="lang-en">Your Name</span><span class="lang-cn">您的姓名</span></label>
@@ -151,6 +157,13 @@
                             <div class="mb-3">
                                 <label class="form-label"><span class="lang-en">Message</span><span class="lang-cn">留言内容</span></label>
                                 <textarea class="form-control" rows="5" name="Message" required></textarea>
+                            </div>
+                            <!-- Google reCAPTCHA -->
+                            <div class="mb-3 text-center">
+                                <div class="g-recaptcha d-inline-block"
+                                     data-sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                                     data-callback="onContactRecaptchaSuccess"
+                                     data-expired-callback="onContactRecaptchaExpired"></div>
                             </div>
                             <button type="submit" class="btn btn-quote btn-lg w-100"><span class="lang-en">Send Message</span><span class="lang-cn">发送留言</span></button>
                         </form>

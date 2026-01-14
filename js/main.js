@@ -141,4 +141,36 @@ document.addEventListener('DOMContentLoaded', function() {
         whatsappLink.innerHTML = '<i class="fab fa-whatsapp whatsapp-icon"></i>';
         document.body.appendChild(whatsappLink);
     })();
+
+    // Contact Form Anti-Spam (Honeypot + reCAPTCHA presence check)
+    var contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            var honeypot = contactForm.querySelector('input[name="company_website"]');
+            if (honeypot && honeypot.value) {
+                e.preventDefault();
+                return;
+            }
+            var recaptchaWidget = document.querySelector('.g-recaptcha');
+            if (recaptchaWidget && typeof grecaptcha !== 'undefined') {
+                var response = grecaptcha.getResponse();
+                if (!response) {
+                    e.preventDefault();
+                    alert('Please complete the CAPTCHA verification / 请完成验证码验证');
+                    return;
+                }
+            }
+        });
+    }
 });
+
+// reCAPTCHA callbacks for contact form
+function onContactRecaptchaSuccess() {
+    // Placeholder for potential future tracking or UI changes
+}
+
+function onContactRecaptchaExpired() {
+    if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.reset();
+    }
+}
