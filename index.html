@@ -14,7 +14,7 @@
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="SLM Masterbatches - Premium Plastic Additives & Masterbatches">
     <meta property="og:description" content="High-quality Black, White, Color, and Functional Masterbatches for plastic manufacturing. Optimize quality and reduce costs with SLM solutions.">
-    <meta property="og:image" content="https://slmmb.com/assets/images/color-masterbatch.jpg">
+    <meta property="og:image" content="https://slmmb.com/assets/images/color-masterbatch.webp">
     <meta property="og:url" content="https://slmmb.com/index.html">
     <meta property="og:type" content="website">
     
@@ -44,6 +44,14 @@
       }
     }
     </script>
+    <!-- Performance Hints: Preconnect to critical third-party origins -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload LCP background image for hero section -->
+    <link rel="preload" as="image" href="assets/images/contact-bg.webp" fetchpriority="high">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -105,7 +113,7 @@
         <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <!-- Slide 1 -->
-                <div class="carousel-item active" style="background-image: url('assets/images/contact-bg.png');">
+                <div class="carousel-item active" style="background-image: url('assets/images/contact-bg.webp');">
                     <div class="hero-overlay">
                         <div class="hero-content text-center">
                             <h1><span class="lang-en">Smart Color Solutions for Precision Manufacturing</span><span class="lang-cn">精密制造的智能色彩解决方案</span></h1>
@@ -115,7 +123,7 @@
                     </div>
                 </div>
                 <!-- Slide 2 -->
-                <div class="carousel-item" style="background-image: url('assets/images/team.jpg');">
+                <div class="carousel-item" style="background-image: url('assets/images/team.webp');">
                     <div class="hero-overlay">
                         <div class="hero-content text-center">
                             <h1><span class="lang-en">Advanced Polymer Technology</span><span class="lang-cn">先进聚合物技术</span></h1>
@@ -125,12 +133,22 @@
                     </div>
                 </div>
                 <!-- Slide 3 -->
-                <div class="carousel-item" style="background-image: url('assets/images/color-masterbatch.jpg');">
+                <div class="carousel-item" style="background-image: url('assets/images/color-masterbatch.webp');">
                     <div class="hero-overlay">
                         <div class="hero-content text-center">
                             <h1><span class="lang-en">Sustainable & Reliable</span><span class="lang-cn">可持续且可靠</span></h1>
                             <p><span class="lang-en">Eco-friendly solutions for a greener future.</span><span class="lang-cn">打造绿色未来的环保解决方案。</span></p>
                             <a href="contact.html" class="btn btn-quote btn-lg"><span class="lang-en">Contact Us</span><span class="lang-cn">联系我们</span></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="carousel-item" style="background-image: url('assets/images/factory picture.webp');">
+                    <div class="hero-overlay">
+                        <div class="hero-content text-center">
+                            <h1><span class="lang-en">Factory-Backed Quality</span><span class="lang-cn">源头工厂 品质保障</span></h1>
+                            <p><span class="lang-en">Real production site, real capacity, real engineering support.</span><span class="lang-cn">真实工厂现场，真实产能，真实工程支持。</span></p>
+                            <a href="about.html" class="btn btn-quote btn-lg"><span class="lang-en">View Our Factory</span><span class="lang-cn">了解我们的工厂</span></a>
                         </div>
                     </div>
                 </div>
@@ -192,7 +210,7 @@
             <div class="row g-4">
                 <div class="col-md-3 col-sm-6">
                     <div class="card">
-                        <img src="assets/images/black-masterbatch-new.jpg" class="card-img-top" alt="Black Masterbatch">
+                        <img src="assets/images/black-masterbatch-new.webp" class="card-img-top" alt="Black Masterbatch" loading="lazy">
                         <div class="card-body text-center">
                             <h5 class="card-title"><span class="lang-en">Black Masterbatch</span><span class="lang-cn">黑色母粒</span></h5>
                             <p class="card-text small"><span class="lang-en">High carbon black concentration for pipe, film, and injection.</span><span class="lang-cn">用于管材、薄膜和注塑的高浓度黑色母粒。</span></p>
@@ -205,7 +223,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="card">
-                        <img src="assets/images/white-masterbatch-new.jpg" class="card-img-top" alt="White Masterbatch">
+                        <img src="assets/images/white-masterbatch-new.webp" class="card-img-top" alt="White Masterbatch" loading="lazy">
                         <div class="card-body text-center">
                             <h5 class="card-title"><span class="lang-en">White Masterbatch</span><span class="lang-cn">白色母粒</span></h5>
                             <p class="card-text small"><span class="lang-en">Premium TiO2 for high opacity and whiteness.</span><span class="lang-cn">优质钛白粉，具有高遮盖力和白度。</span></p>
@@ -218,7 +236,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="card">
-                        <img src="assets/images/color-masterbatch-new.jpg" class="card-img-top" alt="Color Masterbatch">
+                        <img src="assets/images/color-masterbatch-new.webp" class="card-img-top" alt="Color Masterbatch" loading="lazy">
                         <div class="card-body text-center">
                             <h5 class="card-title"><span class="lang-en">Color Masterbatch</span><span class="lang-cn">彩色母粒</span></h5>
                             <p class="card-text small"><span class="lang-en">Custom Pantone matching with excellent dispersion.</span><span class="lang-cn">定制潘通配色，分散性极佳。</span></p>
@@ -231,7 +249,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="card">
-                        <img src="assets/images/functional-masterbatch-new.jpg" class="card-img-top" alt="Functional Masterbatch">
+                        <img src="assets/images/functional-masterbatch-new.webp" class="card-img-top" alt="Functional Masterbatch" loading="lazy">
                         <div class="card-body text-center">
                             <h5 class="card-title"><span class="lang-en">Functional Masterbatch</span><span class="lang-cn">功能性母粒</span></h5>
                             <p class="card-text small"><span class="lang-en">Additives for UV, flame retardant, anti-static, and more.</span><span class="lang-cn">用于抗紫外线、阻燃、防静电等的添加剂。</span></p>
