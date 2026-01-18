@@ -25,39 +25,211 @@
     <meta property="og:url" content="https://slmmb.com/products.html">
     <meta property="og:type" content="website">
 
-    <!-- JSON-LD Structured Data (ItemList) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": [
+      "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
+          "@type": "ItemList",
+          "@id": "https://slmmb.com/products.html#product-list",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Black Masterbatch",
+              "url": "https://slmmb.com/products.html#black"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "White Masterbatch",
+              "url": "https://slmmb.com/products.html#white"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Color Masterbatch",
+              "url": "https://slmmb.com/products.html#color"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Functional Masterbatch",
+              "url": "https://slmmb.com/products.html#functional"
+            }
+          ]
+        },
+        {
+          "@type": "Product",
+          "@id": "https://slmmb.com/products.html#black",
           "name": "Black Masterbatch",
-          "description": "High jetness, UV protection, and excellent dispersion carbon black masterbatch.",
-          "url": "https://slmmb.com/products.html#black"
+          "category": "Plastic masterbatch",
+          "description": "High jetness, UV protection, and excellent dispersion carbon black masterbatch for pipes, film, and injection molding.",
+          "image": "https://slmmb.com/assets/images/black-masterbatch-new2.webp",
+          "url": "https://slmmb.com/products.html#black",
+          "brand": {
+            "@type": "Brand",
+            "name": "SLM Masterbatches"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "0.5",
+            "highPrice": "1.5",
+            "availability": "https://schema.org/InStock",
+            "url": "https://slmmb.com/contact.html"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "MOQ",
+              "value": "100 kg"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Lead time",
+              "value": "3-7 days"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Carbon content",
+              "value": "30-50% depending on grade"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Typical applications",
+              "value": "PE pipes, geo-membranes, blown film, shopping bags, injection molding, auto parts"
+            }
+          ]
         },
         {
-          "@type": "ListItem",
-          "position": 2,
+          "@type": "Product",
+          "@id": "https://slmmb.com/products.html#white",
           "name": "White Masterbatch",
-          "description": "High opacity and whiteness TiO2 masterbatch for film and molding.",
-          "url": "https://slmmb.com/products.html#white"
+          "category": "Plastic masterbatch",
+          "description": "Rutile TiO2 white masterbatch up to 70% concentration for film and molding.",
+          "image": "https://slmmb.com/assets/images/white-masterbatch-new.webp",
+          "url": "https://slmmb.com/products.html#white",
+          "brand": {
+            "@type": "Brand",
+            "name": "SLM Masterbatches"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "1.8",
+            "highPrice": "3.5",
+            "availability": "https://schema.org/InStock",
+            "url": "https://slmmb.com/contact.html"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "MOQ",
+              "value": "100 kg"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Lead time",
+              "value": "3-7 days"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "TiO2 content",
+              "value": "Up to 70% rutile TiO2"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Key features",
+              "value": "High opacity, high whiteness, excellent heat stability, food contact approved (FDA)"
+            }
+          ]
         },
         {
-          "@type": "ListItem",
-          "position": 3,
+          "@type": "Product",
+          "@id": "https://slmmb.com/products.html#color",
           "name": "Color Masterbatch",
-          "description": "Custom color matching and vibrant color masterbatches for various polymers.",
-          "url": "https://slmmb.com/products.html#color"
+          "category": "Plastic masterbatch",
+          "description": "Custom Pantone and RAL color masterbatches with excellent dispersion for multiple polymer carriers.",
+          "image": "https://slmmb.com/assets/images/color-masterbatch-new.webp",
+          "url": "https://slmmb.com/products.html#color",
+          "brand": {
+            "@type": "Brand",
+            "name": "SLM Masterbatches"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "1.8",
+            "highPrice": "5.5",
+            "availability": "https://schema.org/InStock",
+            "url": "https://slmmb.com/contact.html"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "MOQ",
+              "value": "100 kg"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Lead time",
+              "value": "3-7 days"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Carriers",
+              "value": "PE, PP, ABS, PS, PC, PA"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Special effects",
+              "value": "Metallic, pearl, fluorescent and other custom effects"
+            }
+          ]
         },
         {
-          "@type": "ListItem",
-          "position": 4,
+          "@type": "Product",
+          "@id": "https://slmmb.com/products.html#functional",
           "name": "Functional Masterbatch",
-          "description": "Additives including Optical Brightener, Desiccant, and Filler masterbatches.",
-          "url": "https://slmmb.com/products.html#functional"
+          "category": "Plastic additive masterbatch",
+          "description": "Additive masterbatches such as flame retardant, UV stabilizer, slip & anti-block, anti-static and optical brightener.",
+          "image": "https://slmmb.com/assets/images/functional-masterbatch-new.webp",
+          "url": "https://slmmb.com/products.html#functional",
+          "brand": {
+            "@type": "Brand",
+            "name": "SLM Masterbatches"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "lowPrice": "1.8",
+            "highPrice": "5.3",
+            "availability": "https://schema.org/InStock",
+            "url": "https://slmmb.com/contact.html"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "MOQ",
+              "value": "100 kg"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Lead time",
+              "value": "3-7 days"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Functional types",
+              "value": "Flame retardant, UV stabilizer, slip and anti-block, anti-static, optical brightener, thermochromic"
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Typical applications",
+              "value": "Films, auto parts, packaging and other performance-critical plastic products"
+            }
+          ]
         }
       ]
     }
