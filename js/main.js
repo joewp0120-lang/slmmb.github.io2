@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Security: Anti-Clickjacking (Frame Buster)
+    // Prevents the site from being embedded in an iframe (e.g., for clickjacking or cloning)
+    try {
+        if (window.self !== window.top) {
+            window.top.location = window.self.location;
+        }
+    } catch (e) { console.warn('Frame protection triggered'); }
+
+    // Security: Basic Content Protection
+    // Prevent image dragging to discourage easy copying
+    document.addEventListener('dragstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+
     // Language Switcher Logic
     const langKey = 'slm_lang';
     const defaultLang = 'en';
