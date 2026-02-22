@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const langKey = 'slm_lang';
     const defaultLang = 'en';
     
-    // Initialize Google Translate
     window.googleTranslateElementInit = function() {
         new google.translate.TranslateElement({
             pageLanguage: 'en',
@@ -29,14 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 'google_translate_element');
     };
 
-    // Load Google Translate Script
-    (function() {
+    function loadGoogleTranslateScript() {
+        if (window.googleTranslateScriptLoaded) return;
+        window.googleTranslateScriptLoaded = true;
         var googleTranslateScript = document.createElement('script');
         googleTranslateScript.type = 'text/javascript';
         googleTranslateScript.async = true;
         googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(googleTranslateScript);
-    })();
+    }
 
     // Helper to set Google Translate Cookie
     function setGoogleTranslateCookie(lang) {
@@ -53,29 +53,24 @@ document.addEventListener('DOMContentLoaded', function() {
         document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     }
 
-    // Check saved language or default
     let currentLang = localStorage.getItem(langKey) || defaultLang;
     
-    // Check if Google Translate is active via cookie
     const cookies = document.cookie.split(';');
     let isGoogleTranslateActive = false;
     for(let cookie of cookies) {
         if(cookie.trim().startsWith('googtrans=')) {
-            // If googtrans exists and is not /en/en, it is active
             if (cookie.includes('/en/en') || cookie.includes('/auto/en')) {
-                 // effectively english
             } else {
                 isGoogleTranslateActive = true;
             }
         }
     }
 
-    // If Google Translate is NOT active, apply our manual language
     if (!isGoogleTranslateActive) {
         setLanguage(currentLang);
     } else {
-        // Ensure underlying text is English so translation works best
         setLanguage('en');
+        loadGoogleTranslateScript();
     }
 
     // Event listeners for switchers
@@ -87,27 +82,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const type = e.target.getAttribute('data-type'); // 'manual' or 'auto'
 
             if (type === 'manual') {
-                // Clear Google Translate
                 clearGoogleTranslateCookie();
-                
-                // Set Manual Language
                 setLanguage(lang);
-                
-                // If Google Translate was active, we need to reload to remove the widget's DOM changes
                 if (isGoogleTranslateActive) {
                     window.location.reload();
                 } else {
-                    // Just update content if we were already in manual mode
-                    // (setLanguage already did it, but let's be sure)
                 }
             } else if (type === 'auto') {
-                // Set underlying to English
                 setLanguage('en');
-                
-                // Set Cookie
                 setGoogleTranslateCookie(lang);
-                
-                // Reload to apply
+                loadGoogleTranslateScript();
                 window.location.reload();
             }
         }
@@ -125,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // console.log("Language switched to: " + lang);
     }
 
-    // Active Navbar Link Logic
     const currentLocation = location.href;
     const menuItem = document.querySelectorAll('.nav-link');
     const menuLength = menuItem.length;
@@ -157,6 +140,27 @@ document.addEventListener('DOMContentLoaded', function() {
         whatsappLink.innerHTML = '<i class="fab fa-whatsapp whatsapp-icon"></i>';
         document.body.appendChild(whatsappLink);
     })();
+
+    var heroCarousel = document.getElementById('heroCarousel');
+    if (heroCarousel) {
+        var lazyBgItems = heroCarousel.querySelectorAll('.carousel-item[data-bg]');
+        lazyBgItems.forEach(function(item) {
+            if (item.classList.contains('active')) {
+                var bg = item.getAttribute('data-bg');
+                if (bg) {
+                    item.style.backgroundImage = "url('" + bg + "')";
+                }
+            }
+        });
+        heroCarousel.addEventListener('slide.bs.carousel', function(e) {
+            var target = e.relatedTarget;
+            if (!target) return;
+            var bg = target.getAttribute('data-bg');
+            if (bg && !target.style.backgroundImage) {
+                target.style.backgroundImage = "url('" + bg + "')";
+            }
+        });
+    }
 
     // Contact Form Anti-Spam (Honeypot + reCAPTCHA presence check)
     var contactForm = document.getElementById('contact-form');
