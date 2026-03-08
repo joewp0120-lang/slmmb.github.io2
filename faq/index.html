@@ -1,12 +1,7 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script>
-        if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
-            location.replace('https://' + location.hostname + location.pathname + location.search);
-        }
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Q067Y6FM6"></script>
     <script>
@@ -227,6 +222,74 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="accordion" id="faqAccordion">
+                        <!-- Technical Q1: Color Variation -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTech1">
+                                <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTech1" aria-expanded="false" aria-controls="collapseTech1">
+                                    <strong><span class="lang-en text-primary">Technical Insight:</span> <span class="lang-en">How do I solve the problem of color difference in injection products?</span></strong>
+                                    <span class="lang-cn d-none">技术洞察：如何解决注塑产品的色差问题？</span>
+                                </button>
+                            </h2>
+                            <div id="collapseTech1" class="accordion-collapse collapse" aria-labelledby="headingTech1" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <div class="lang-en">
+                                        <p class="lead text-dark fst-italic">Expert Reply from Dorothy (SLMMB):</p>
+                                        <p>On the injection molding production floor, color variation is often simply blamed on "unstable masterbatch quality." However, as a technical professional deeply involved in the polymer coloration industry for years, I must point out a critical fact: color difference is a multi-variable, non-linear outcome resulting from the combined effects of the machine, mold, processing parameters, and the material's thermal history. To strictly control color variation within the demanding range of <strong>ΔE &lt; 1.0</strong>, we must conduct a systematic diagnosis from the perspectives of rheology and thermodynamics.</p>
+                                        
+                                        <h5 class="text-primary mt-4">1. The Hidden Killer: Thermal History and Residence Time</h5>
+                                        <p>Many injection molding engineers overlook the polymer's "thermal budget" inside the barrel. If the barrel capacity of the injection molding machine is significantly larger than the single shot weight (e.g., the shot weight only accounts for 15% of the barrel capacity), the color masterbatch will undergo multiple cycles in a high-temperature environment. This excessive residence time leads to the thermal degradation or carbonization of the pigments (especially organic reds and yellows), causing the final product to appear dull, dark, or yellowish.</p>
+                                        <p><strong>Diagnostic Advice:</strong> Check your cycle time and barrel utilization. For heat-sensitive pigments, we highly recommend switching to a smaller tonnage machine or reducing the temperature in the rear zones of the barrel.</p>
+
+                                        <h5 class="text-primary mt-4">2. The Tug-of-War: Back Pressure vs. Shear Heating</h5>
+                                        <p>To improve mixing efficiency, operators habitually increase back pressure. However, excessively high back pressure significantly increases the mechanical shear force of the screw, which then converts into internal heat (Shear Heating). This localized, instantaneous high temperature can spike 20°C to 30°C above your set processing temperature—more than enough to destroy the molecular structure of the pigment.</p>
+                                        <p><strong>The SLMMB Solution:</strong> We recommend adopting a processing window of "low back pressure, medium rotation speed." Additionally, ensure that the Melt Flow Index (MFI) of the masterbatch carrier is slightly higher than that of the base resin to facilitate natural diffusion under low shear conditions.</p>
+
+                                        <h5 class="text-primary mt-4">3. The Root Cause: Carrier Resin Rheological Mismatch</h5>
+                                        <p>This is the most fundamental materials-science reason. If you are using a PP base resin but purchase a cheaper masterbatch with a universal PE carrier to cut costs, the difference in melting points and viscosity between PE and PP prevents them from forming a homogeneous system in the melt. This causes the pigment to distribute in "streaks" or uneven patches, manifesting macroscopically as color difference.</p>
+                                        <p><strong>The Solution:</strong> Strictly adhere to the "Dedicated Carrier" principle. SLMMB consistently advocates: use a PP-based masterbatch for PP products, and a SAN-based masterbatch for ABS products. This ensures consistent rheological behavior and completely eliminates compatibility-induced color variations.</p>
+
+                                        <h5 class="text-primary mt-4">4. The Disturbance Factor: Regrind Material</h5>
+                                        <p>Fluctuations in the percentage of regrind (recycled material) added are a common trigger for color shifts. Regrind has already undergone one thermal history, making its base color inherently more yellowish.</p>
+                                        <p><strong>Control Strategy:</strong> Strictly fix the regrind ratio (e.g., at 15%) and ensure it undergoes a thorough dust removal process. Fine powder within the regrind will melt faster than the pellets and decompose from overheating, resulting in black specks or color discoloration.</p>
+
+                                        <hr class="my-4">
+                                        <h6 class="fw-bold">Dorothy's Engineering Recommendation:</h6>
+                                        <p>Before you start tweaking machine settings, please first check the Technical Data Sheet (TDS) for the heat resistance of your color masterbatch. If your processing temperature is 240°C, but the masterbatch's heat resistance is only rated for 200°C, any process adjustment will be completely futile.</p>
+                                        <div class="alert alert-info">
+                                            <i class="fas fa-microscope me-2"></i><strong>Need help analyzing a defect?</strong> You can send samples of both your "approved parts" and "defective parts" to the SLMMB laboratory. We provide a complimentary spectrophotometric analysis service to help you pinpoint the exact root cause.
+                                        </div>
+                                    </div>
+                                    <div class="lang-cn d-none">
+                                        <p class="lead text-dark fst-italic">Dorothy (SLMMB) 的专家回复：</p>
+                                        <p>在注塑生产现场，色差往往被简单地归咎于“色母粒质量不稳定”。然而，作为多年深耕聚合物着色行业的技术人员，我必须指出一个关键事实：色差是机器、模具、工艺参数和材料热历史共同作用的多变量非线性结果。要将色差严格控制在 <strong>ΔE &lt; 1.0</strong> 的严苛范围内，我们必须从流变学和热力学的角度进行系统诊断。</p>
+                                        
+                                        <h5 class="text-primary mt-4">1. 隐形杀手：热历史与停留时间</h5>
+                                        <p>许多注塑工程师忽视了聚合物在料筒内的“热预算”。如果注塑机的料筒容量远大于单次射出重量（例如射出重量仅占料筒容量的15%），色母粒将在高温环境中经历多次循环。这种过长的停留时间会导致颜料（尤其是有机红、黄颜料）热降解或碳化，导致最终产品发暗、发黑或发黄。</p>
+                                        <p><strong>诊断建议：</strong>检查您的周期时间和料筒利用率。对于热敏性颜料，我们强烈建议改用小吨位机器或降低料筒后段温度。</p>
+
+                                        <h5 class="text-primary mt-4">2. 拉锯战：背压与剪切热</h5>
+                                        <p>为了提高混合效率，操作人员习惯性地增加背压。然而，过高的背压会显著增加螺杆的机械剪切力，进而转化为内部热量（剪切热）。这种局部的瞬间高温可能比您的设定加工温度高出 20°C 到 30°C——足以破坏颜料的分子结构。</p>
+                                        <p><strong>SLMMB 解决方案：</strong>我们建议采用“低背压、中转速”的工艺窗口。此外，确保色母粒载体的熔融指数（MFI）略高于基础树脂，以便在低剪切条件下促进自然扩散。</p>
+
+                                        <h5 class="text-primary mt-4">3. 根本原因：载体树脂流变不匹配</h5>
+                                        <p>这是最基础的材料科学原因。如果您使用 PP 基础树脂，但为了降低成本购买了带有通用 PE 载体的廉价色母粒，PE 和 PP 之间的熔点和粘度差异会阻止它们在熔体中形成均相系统。这导致颜料以“条纹”或不均匀斑块的形式分布，宏观上表现为色差。</p>
+                                        <p><strong>解决方案：</strong>严格遵守“专用载体”原则。SLMMB 一贯主张：PP 产品使用 PP 基色母粒，ABS 产品使用 SAN 基色母粒。这确保了一致的流变行为，彻底消除因相容性引起的颜色变化。</p>
+
+                                        <h5 class="text-primary mt-4">4. 干扰因素：回料（水口料）</h5>
+                                        <p>回料（再生料）添加比例的波动是颜色偏移的常见诱因。回料已经历过一次热历史，其基色本质上更偏黄。</p>
+                                        <p><strong>控制策略：</strong>严格固定回料比例（例如 15%），并确保其经过彻底的除尘过程。回料中的细粉会比颗粒熔化得更快，并因过热而分解，导致黑点或变色。</p>
+
+                                        <hr class="my-4">
+                                        <h6 class="fw-bold">Dorothy 的工程建议：</h6>
+                                        <p>在您开始调整机器设置之前，请先检查技术数据表（TDS）中色母粒的耐热性。如果您的加工温度是 240°C，但色母粒的耐热性仅为 200°C，任何工艺调整都将完全徒劳。</p>
+                                        <div class="alert alert-info">
+                                            <i class="fas fa-microscope me-2"></i><strong>需要帮助分析缺陷？</strong>您可以将“合格件”和“缺陷件”的样品寄送至 SLMMB 实验室。我们提供免费的分光光度计分析服务，帮助您查明确切的根本原因。
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Q1 -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
