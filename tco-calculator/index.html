@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Overpaying for "Cheap" Pigments | SLM Masterbatches</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Optional, keeping consistent with main site if used, but removing for speed as per previous tasks) -->
+    
+    <style>
+        :root {
+            --slmb-blue: #003366;
+            --slmb-orange: #FF6600;
+            --slmb-light-gray: #f8f9fa;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--slmb-blue) 0%, #004080 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: white;
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        }
+
+        .highlight-text {
+            color: var(--slmb-orange);
+            font-weight: bold;
+        }
+
+        /* Pain Points Section */
+        .pain-point-card {
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            height: 100%;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .pain-point-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .pain-icon {
+            font-size: 2.5rem;
+            color: var(--slmb-orange);
+            margin-bottom: 20px;
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            background-color: var(--slmb-light-gray);
+            padding: 80px 0;
+        }
+
+        .calc-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+
+        .input-group-text {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+        }
+
+        /* Mobile Optimization for Range Slider */
+        .form-range {
+            height: 1.5rem; /* Taller touch target */
+        }
+        
+        .form-range::-webkit-slider-thumb {
+            width: 24px;
+            height: 24px;
+            margin-top: -8px; /* Center thumb */
+        }
+
+        .form-range::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .calc-card {
+                padding: 20px;
+            }
+            .result-value {
+                font-size: 2rem;
+            }
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--slmb-orange);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.9)), url('../assets/images/factory picture.webp');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .form-control-lg {
+            border-radius: 5px;
+        }
+
+        .btn-cta {
+            background-color: var(--slmb-orange);
+            color: white;
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 30px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: #e65c00;
+            transform: scale(1.05);
+        }
+
+        /* Trust Signals */
+        .trust-section {
+            padding: 60px 0;
+        }
+        
+        .feature-icon {
+            color: var(--slmb-blue);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar (Simplified) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../">
+                <img src="../assets/images/logo.png" alt="SLMB Logo" height="50">
+            </a>
+            <div class="ms-auto d-flex align-items-center">
+                <div class="me-4 d-none d-lg-block">
+                    <span class="fw-bold me-3">Contact: Dorothy</span>
+                    <a href="https://wa.me/8618027593021" class="text-dark text-decoration-none me-3"><i class="fab fa-whatsapp text-success"></i> +86-18027593021</a>
+                    <a href="mailto:salesl.dorothy@gmail.com" class="text-dark text-decoration-none"><i class="fas fa-envelope text-primary"></i> salesl.dorothy@gmail.com</a>
+                </div>
+                <a href="../contact/" class="btn btn-outline-primary">Contact Sales</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="display-4 fw-bold mb-4">Stop Overpaying for "Cheap" Pigments</h1>
+                    <p class="lead mb-0">Discover the <span class="highlight-text">20% Hidden Profit</span> in Your Production Line with SLMB’s TCO Calculator</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">The Pain Points</h2>
+                <p class="text-muted">Is your "low-cost" pigment actually costing you a fortune?</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="pain-point-card p-4 text-center">
+                        <i class="fas fa-clock pain-icon"></i>
+                        <h4>Downtime</h4>
+                        <p>Are your machines sitting idle for hours during color changes? Every minute of downtime is lost revenue.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pain-point-card p-4 text-center">
+                        <i class="fas fa-trash-alt pain-icon"></i>
+                        <h4>Scrap Waste</h4>
+                        <p>How many tons of resin are wasted as "off-spec" purge each year? Material waste eats directly into your margins.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pain-point-card p-4 text-center">
+                        <i class="fas fa-exclamation-triangle pain-icon"></i>
+                        <h4>Quality Issues</h4>
+                        <p>Tired of film breaks, white spots, and customer complaints? The "Hidden Factory" costs are what truly erode your profits.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p class="fs-5">The Reality: The price per kg of colorant is only the tip of the iceberg.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Interactive TCO Calculator</h2>
+                <p class="text-muted">See the Magic: Calculate Your Potential Savings</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="calc-card">
+                        <div class="row">
+                            <!-- Input Column -->
+                            <div class="col-md-6 border-end">
+                                <h4 class="mb-4 text-primary">Your Current Process Data</h4>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">Machine Hourly Rate ($/hr)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="number" class="form-control" id="machineRate" value="150" min="0">
+                                    </div>
+                                    <small class="text-muted">Power, Labor, Depreciation cost per hour</small>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">Hourly Capacity (kg/hr)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="hourlyCapacity" value="200" min="0">
+                                        <span class="input-group-text">kg/hr</span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">Changeover Time (Current)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="changeoverTime" value="60" min="0">
+                                        <span class="input-group-text">minutes</span>
+                                    </div>
+                                    <input type="range" class="form-range mt-2" id="changeoverRange" min="0" max="240" value="60">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">Scrap Waste per Changeover</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="scrapWeight" value="50" min="0">
+                                        <span class="input-group-text">kg</span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">Annual Production Volume</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="annualVolume" value="1000" min="0">
+                                        <span class="input-group-text">Tons/Year</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Result Column -->
+                            <div class="col-md-6 d-flex flex-column justify-content-center ps-md-5">
+                                <h4 class="mb-4 text-success text-center">Potential Annual Savings</h4>
+                                
+                                <div class="result-box">
+                                    <p class="mb-0">Total Estimated Savings</p>
+                                    <div class="result-value" id="totalSavings">$0</div>
+                                    <small>(Based on reduced downtime & scrap)</small>
+                                </div>
+
+                                <div class="row mt-4 text-center">
+                                    <div class="col-6">
+                                        <h5 class="fw-bold text-primary" id="utilizationGain">+0%</h5>
+                                        <p class="small text-muted">Machine Utilization</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5 class="fw-bold text-danger" id="wasteReduction">-0 Tons</h5>
+                                        <p class="small text-muted">Resin Waste Reduction</p>
+                                    </div>
+                                </div>
+
+                                <div class="alert alert-info mt-4" role="alert">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    <strong>How it works:</strong> Our model <code>TCO = Ca + Co + Cm + Cp</code> compares your dry pigment process against SLMB high-dispersion masterbatch system (assuming 80% reduction in changeover time & scrap).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-4">Get Your Full ROI & Efficiency Diagnostic Report</h2>
+                    <p class="mb-5 fs-5">Don't just take our word for it. Enter your work email to receive a customized PDF report including a 12-month ROI projection and a step-by-step transition roadmap for your facility.</p>
+                    
+                    <form action="https://formsubmit.co/salesl.dorothy@gmail.com" method="POST" class="bg-white p-4 rounded text-dark shadow">
+                        <!-- Hidden Fields for FormSubmit -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://slmmb.com/thank-you/">
+                        <input type="hidden" name="_subject" id="emailSubject" value="New TCO Calculator Lead">
+                        <input type="hidden" name="_autoresponse" value="Thank you for your interest! Your customized ROI report is being generated and will be sent to your email shortly.">
+                        <input type="hidden" name="_template" value="table">
+                        
+                        <!-- High Value Lead Tag -->
+                        <input type="hidden" name="Lead_Score" id="leadScore" value="Standard">
+                        
+                        <!-- Hidden Fields for Calculator Data (Populated via JS) -->
+                        <input type="hidden" name="Calculated_Savings" id="hiddenSavings">
+                        <input type="hidden" name="Machine_Rate" id="hiddenMachineRate">
+                        <input type="hidden" name="Annual_Volume" id="hiddenVolume">
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-control-lg" name="Name" placeholder="First Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control form-control-lg" name="Email" placeholder="Work Email Address" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="number" class="form-control form-control-lg" name="Annual_Production_Tons" id="formAnnualVolume" placeholder="Annual Production Volume (Tons)" required>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-cta w-100">Send My Free Diagnostic Report</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Signals Section -->
+    <section class="trust-section bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Why Choose SLMB?</h2>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <i class="fas fa-atom feature-icon"></i>
+                    <h5>Advanced Pre-dispersion</h5>
+                    <p class="text-muted">Zero clumping, zero film breaks. Consistent quality every time.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-flask feature-icon"></i>
+                    <h5>Ultra-High Concentration</h5>
+                    <p class="text-muted">Lower Let-down Ratios (LDR) to save on storage and shipping costs.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-leaf feature-icon"></i>
+                    <h5>EHS Excellence</h5>
+                    <p class="text-muted">100% dust-free environment for a safer, cleaner shop floor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mb-2">
+                <span class="fw-bold text-white">Contact: Dorothy</span>
+                <span class="text-white-50">|</span>
+                <a href="https://wa.me/8618027593021" class="text-white text-decoration-none d-flex align-items-center">
+                    <i class="fab fa-whatsapp me-2 text-warning"></i> +86-18027593021
+                </a>
+                <span class="text-white-50 d-none d-sm-inline">|</span>
+                <a href="mailto:salesl.dorothy@gmail.com" class="text-white text-decoration-none d-flex align-items-center">
+                    <i class="fas fa-envelope me-2 text-warning"></i> salesl.dorothy@gmail.com
+                </a>
+            </div>
+            <p class="mb-0 small text-white-50">&copy; 2026 SLM Masterbatches Co., Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Calculator Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const machineRateInput = document.getElementById('machineRate');
+            const hourlyCapacityInput = document.getElementById('hourlyCapacity');
+            const changeoverTimeInput = document.getElementById('changeoverTime');
+            const changeoverRange = document.getElementById('changeoverRange');
+            const scrapWeightInput = document.getElementById('scrapWeight');
+            const annualVolumeInput = document.getElementById('annualVolume');
+            const formAnnualVolume = document.getElementById('formAnnualVolume');
+
+            const totalSavingsDisplay = document.getElementById('totalSavings');
+            const utilizationGainDisplay = document.getElementById('utilizationGain');
+            const wasteReductionDisplay = document.getElementById('wasteReduction');
+
+            const hiddenSavings = document.getElementById('hiddenSavings');
+            const hiddenMachineRate = document.getElementById('hiddenMachineRate');
+            const hiddenVolume = document.getElementById('hiddenVolume');
+
+            // Sync Range and Number input
+            changeoverRange.addEventListener('input', function() {
+                changeoverTimeInput.value = this.value;
+                calculateTCO();
+            });
+            changeoverTimeInput.addEventListener('input', function() {
+                changeoverRange.value = this.value;
+                calculateTCO();
+            });
+
+            // Sync Annual Volume inputs (Calculator <-> Form)
+            annualVolumeInput.addEventListener('input', function() {
+                formAnnualVolume.value = this.value;
+                calculateTCO();
+            });
+            formAnnualVolume.addEventListener('input', function() {
+                annualVolumeInput.value = this.value;
+                calculateTCO();
+            });
+
+            // Listeners for all inputs
+            const inputs = [machineRateInput, hourlyCapacityInput, scrapWeightInput];
+            inputs.forEach(input => {
+                input.addEventListener('input', calculateTCO);
+            });
+
+            // Calculation Logic
+            function calculateTCO() {
+                // Get values
+                const machineRate = parseFloat(machineRateInput.value) || 0;
+                const capacity = parseFloat(hourlyCapacityInput.value) || 1;
+                const changeTimeCurrent = parseFloat(changeoverTimeInput.value) || 0;
+                const scrapCurrent = parseFloat(scrapWeightInput.value) || 0;
+                const annualTons = parseFloat(annualVolumeInput.value) || 0;
+
+                // Assumptions for SLMB Optimization (Conservative estimates)
+                // SLMB masterbatch allows faster changeover (e.g., 80% reduction if coming from powder, or 50% from bad MB)
+                // Let's assume SLMB reduces changeover time by 50% and scrap by 50% for this demo
+                const changeTimeOptimized = changeTimeCurrent * 0.2; // 80% reduction
+                const scrapOptimized = scrapCurrent * 0.2; // 80% reduction
+                
+                // Calculate Number of Batches/Changeovers per Year
+                // Assuming average batch size. If not provided, we can estimate based on capacity.
+                // Let's assume 1 changeover per 5 tons produced for calculation sake, or derive from capacity.
+                // Better metric: Savings per changeover * Number of changeovers.
+                // Let's estimate changeovers = Annual Tons / (Capacity * 4 hours run) -> rough estimate
+                // Or simply: assume 1 changeover per day? 
+                // Let's use a standard assumption: 200 changeovers per year for 1000 tons (avg 5 ton batch).
+                const batchesPerYear = annualTons > 0 ? (annualTons / 5) : 200; 
+
+                // 1. Downtime Savings
+                // Cost of Downtime = (Time * Machine Rate)
+                const downtimeCostCurrent = (changeTimeCurrent / 60) * machineRate;
+                const downtimeCostOptimized = (changeTimeOptimized / 60) * machineRate;
+                const downtimeSavingsPerBatch = downtimeCostCurrent - downtimeCostOptimized;
+
+                // 2. Scrap Savings
+                // Cost of Scrap = Weight * Material Cost (Assume avg resin cost $1.5/kg)
+                const resinCost = 1.5; 
+                const scrapCostCurrent = scrapCurrent * resinCost;
+                const scrapCostOptimized = scrapOptimized * resinCost;
+                const scrapSavingsPerBatch = scrapCostCurrent - scrapCostOptimized;
+
+                // Total Annual Savings
+                const totalSavings = (downtimeSavingsPerBatch + scrapSavingsPerBatch) * batchesPerYear;
+
+                // Metrics
+                const totalScrapSaved = (scrapCurrent - scrapOptimized) * batchesPerYear / 1000; // Tons
+                
+                // Utilization Gain
+                // Hours saved / Total available hours (assuming 24/7 or 2 shifts)
+                // Total hours saved
+                const hoursSaved = ((changeTimeCurrent - changeTimeOptimized) / 60) * batchesPerYear;
+                const totalHours = 24 * 300; // Approx 7200 hours/year
+                const utilGain = (hoursSaved / totalHours) * 100;
+
+                // Update UI
+                totalSavingsDisplay.innerText = '$' + Math.round(totalSavings).toLocaleString();
+                utilizationGainDisplay.innerText = '+' + utilGain.toFixed(1) + '%';
+                wasteReductionDisplay.innerText = '-' + totalScrapSaved.toFixed(1) + ' Tons';
+
+                // Update Hidden Form Fields
+                hiddenSavings.value = Math.round(totalSavings);
+                hiddenMachineRate.value = machineRate;
+                hiddenVolume.value = annualTons;
+
+                // 3. Lead Scoring Logic
+                // If Annual Volume > 200 Tons OR Savings > $50,000 -> High Value
+                const leadScoreInput = document.getElementById('leadScore');
+                const emailSubjectInput = document.getElementById('emailSubject');
+                
+                if (annualTons >= 200 || totalSavings >= 50000) {
+                    leadScoreInput.value = "🔥 HIGH VALUE LEAD 🔥";
+                    emailSubjectInput.value = "🔥 URGENT: High Value TCO Lead (>" + annualTons + " Tons)";
+                } else {
+                    leadScoreInput.value = "Standard Lead";
+                    emailSubjectInput.value = "New TCO Calculator Lead";
+                }
+            }
+
+            // Initial Calc
+            calculateTCO();
+        });
+    </script>
+</body>
+</html>
