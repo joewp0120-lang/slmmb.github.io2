@@ -157,6 +157,199 @@ body {
     font-weight: 300;
 }
 
+.hero-single {
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 0 90px;
+    background: linear-gradient(rgba(0, 33, 71, 0.78), rgba(0, 33, 71, 0.78)), url('../assets/images/contact-bg.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-single h1 {
+    font-size: 3.1rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 18px;
+}
+
+.hero-single .hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 26px;
+}
+
+.btn-hero-primary {
+    background-color: #00d084;
+    color: #0b1f2a !important;
+    border-radius: 28px;
+    padding: 12px 28px;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(0, 208, 132, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-hero-primary:hover {
+    background-color: #00bf79;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0, 208, 132, 0.35);
+}
+
+.trust-strip {
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.trust-strip .trust-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.trust-badges {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 6px 2px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.trust-badge-item {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--primary-color);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.trust-badge-item i {
+    color: var(--secondary-color);
+}
+
+.pain-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 33, 71, 0.06);
+    color: var(--primary-color);
+    font-size: 1.35rem;
+    margin-bottom: 14px;
+}
+
+.lead-magnet-mockup {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+    background: radial-gradient(1200px 500px at 20% 0%, rgba(0, 208, 132, 0.25), rgba(0,0,0,0)) , linear-gradient(135deg, #0b2a4a, #00152e);
+    color: #fff;
+}
+
+.lead-magnet-mockup .mockup-top {
+    padding: 22px 22px 0;
+}
+
+.lead-magnet-mockup .mockup-title {
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 10px;
+}
+
+.lead-magnet-mockup .mockup-subtitle {
+    opacity: 0.9;
+    margin: 0 0 14px;
+}
+
+.lead-magnet-mockup .mockup-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    opacity: 0.92;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.lead-magnet-mockup .mockup-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+}
+
+.lead-magnet-mockup .mockup-bottom {
+    padding: 18px 22px 22px;
+}
+
+.lead-magnet-mockup .mockup-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.lead-magnet-mockup .mockup-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    font-size: 0.95rem;
+}
+
+.lead-magnet-mockup .mockup-table tr:last-child td {
+    border-bottom: none;
+}
+
+.dropdown-menu.mega-menu {
+    width: min(720px, calc(100vw - 2rem));
+    padding: 16px;
+}
+
+.dropdown-menu.mega-menu .mega-title {
+    color: var(--primary-color);
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.dropdown-menu.mega-menu .mega-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 10px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.dropdown-menu.mega-menu .mega-link:hover {
+    background: rgba(0, 33, 71, 0.06);
+    color: var(--secondary-color);
+}
+
+@media (max-width: 991.98px) {
+    .hero-single {
+        min-height: auto;
+        padding: 120px 0 70px;
+    }
+    .hero-single h1 {
+        font-size: 2.25rem;
+    }
+    .hero-single .hero-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
 /* Cards & Sections */
 .section-padding {
     padding: 80px 0;
