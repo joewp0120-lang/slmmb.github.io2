@@ -163,6 +163,34 @@
             margin-bottom: 15px;
         }
 
+        /* Hero Form Styles */
+        .hero-form-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 30px;
+        }
+
+        .hero-form-container .form-control, 
+        .hero-form-container .form-select {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+        }
+
+        .hero-mockup-img {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            max-width: 100%;
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-mockup-img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
         /* Footer */
         footer {
             background-color: #333;
@@ -176,9 +204,7 @@
     <!-- Navbar (Simplified) -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="../">
-                <img src="../assets/images/logo.png" alt="SLMB Logo" height="50">
-            </a>
+            <a class="navbar-brand" href="../">SLM Masterbatches Co., Ltd.</a>
             <div class="ms-auto d-flex align-items-center">
                 <div class="me-4 d-none d-lg-block">
                     <span class="fw-bold me-3">Contact: Dorothy</span>
@@ -191,12 +217,43 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section text-center">
+    <section class="hero-section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
+            <div class="row align-items-center">
+                <div class="col-lg-7 text-start">
                     <h1 class="display-4 fw-bold mb-4">Stop Overpaying for "Cheap" Pigments</h1>
-                    <p class="lead mb-0">Discover the <span class="highlight-text">20% Hidden Profit</span> in Your Production Line with SLMB’s TCO Calculator</p>
+                    <p class="lead mb-4">Discover the <span class="highlight-text">20% Hidden Profit</span> in Your Production Line with SLMB’s TCO Calculator</p>
+                    
+                    <!-- Lead Capture Form -->
+                    <div class="hero-form-container">
+                        <form action="https://formsubmit.co/salesl.dorothy@gmail.com" method="POST">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://slmmb.com/thank-you/">
+                            <input type="hidden" name="_subject" value="New TCO Calculator Download Request">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <input type="text" name="Name" class="form-control" placeholder="Name" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="email" name="Email" class="form-control" placeholder="Work Email" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <select name="Process" class="form-select" required>
+                                        <option value="" disabled selected>Process</option>
+                                        <option value="Injection Molding">Injection Molding</option>
+                                        <option value="Blown Film">Blown Film</option>
+                                        <option value="Extrusion">Extrusion</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <button type="submit" class="btn btn-cta w-100">Get My Free TCO Calculator Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center mt-5 mt-lg-0">
+                    <img src="../assets/images/tco-calculator-mockup.webp" alt="TCO Cost Reduction Calculator Excel Mockup" class="hero-mockup-img">
                 </div>
             </div>
         </div>
