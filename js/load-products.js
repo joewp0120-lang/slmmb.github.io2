@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const resetBtn = document.getElementById('reset-filters');
 
     // Determine path to products.json based on current location
-    const isSubDir = window.location.pathname.includes('/products/');
-    const jsonPath = isSubDir ? '../data/products.json' : 'data/products.json';
-    const contactPath = isSubDir ? '../contact/' : 'contact/';
-    const tcoPath = isSubDir ? '../tco-calculator/' : 'tco-calculator/';
+    const origin = window.location.origin && window.location.origin !== 'null' ? window.location.origin : '';
+    const jsonPath = `${origin}/data/products.json`;
+    const contactPath = `${origin}/contact/`;
+    const tcoPath = `${origin}/tco-calculator/`;
 
-    fetch(jsonPath)
+    fetch(jsonPath, { cache: 'no-store' })
         .then(response => {
             if (!response.ok) throw new Error('Failed to load products data');
             return response.json();
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Error:', error);
-            productContainer.innerHTML = `<div class="col-12 text-center text-danger">Error loading product catalog. Please contact us directly.</div>`;
+            productContainer.innerHTML = `<div class="col-12 text-center text-danger">Error loading product catalog. Please contact us directly. <a href="${contactPath}" class="text-danger text-decoration-underline">Contact us</a></div>`;
         });
 });
 
