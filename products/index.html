@@ -273,6 +273,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Dynamic Product Loader -->
+    <script src="../js/load-products.js" defer></script>
 </head>
 <body class="lang-en">
 
@@ -294,10 +296,10 @@
                             <div class="row g-3">
                                 <div class="col-12 col-lg-6">
                                     <div class="mega-title"><span class="lang-en">Product Families</span><span class="lang-cn">产品分类</span></div>
-                                    <a class="mega-link" href="#black"><span class="lang-en">Black Masterbatch</span><span class="lang-cn">黑色母粒</span></a>
-                                    <a class="mega-link" href="#white"><span class="lang-en">White Masterbatch</span><span class="lang-cn">白色母粒</span></a>
-                                    <a class="mega-link" href="#color"><span class="lang-en">Color Masterbatch</span><span class="lang-cn">彩色母粒</span></a>
-                                    <a class="mega-link" href="#functional"><span class="lang-en">Functional Masterbatch</span><span class="lang-cn">功能母粒</span></a>
+                                    <a class="mega-link" href="black-masterbatch/"><span class="lang-en">Black Masterbatch</span><span class="lang-cn">黑色母粒</span></a>
+                                    <a class="mega-link" href="white-masterbatch/"><span class="lang-en">White Masterbatch</span><span class="lang-cn">白色母粒</span></a>
+                                    <a class="mega-link" href="color-masterbatch/"><span class="lang-en">Color Masterbatch</span><span class="lang-cn">彩色母粒</span></a>
+                                    <a class="mega-link" href="functional-masterbatch/"><span class="lang-en">Functional Masterbatch</span><span class="lang-cn">功能母粒</span></a>
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <div class="mega-title"><span class="lang-en">Quick Links</span><span class="lang-cn">快速入口</span></div>
@@ -422,7 +424,7 @@
                     </table>
                     
                     <div class="mt-4">
-                        <a href="../assets/docs/High-Performance Black Masterbatch.pdf" target="_blank" class="btn btn-outline-primary me-2"><i class="fas fa-file-pdf"></i> <span class="lang-en">Download TDS</span><span class="lang-cn">下载TDS</span></a>
+                        <a href="black-masterbatch/" class="btn btn-primary me-2"><i class="fas fa-search-plus"></i> <span class="lang-en">Explore Gallery & TDS</span><span class="lang-cn">查看图库与TDS</span></a>
                         <a href="../contact/" class="btn btn-quote"><span class="lang-en">Request Sample</span><span class="lang-cn">索取样品</span></a>
                     </div>
                 </div>
@@ -486,7 +488,7 @@
                     </ul>
 
                     <div class="mt-4">
-                        <a href="../assets/docs/White Masterbatch.pdf" target="_blank" class="btn btn-outline-primary me-2"><i class="fas fa-file-pdf"></i> <span class="lang-en">Download TDS</span><span class="lang-cn">下载TDS</span></a>
+                        <a href="white-masterbatch/" class="btn btn-primary me-2"><i class="fas fa-search-plus"></i> <span class="lang-en">Explore Gallery & TDS</span><span class="lang-cn">查看图库与TDS</span></a>
                         <a href="../contact/" class="btn btn-quote"><span class="lang-en">Request Sample</span><span class="lang-cn">索取样品</span></a>
                     </div>
                 </div>
@@ -565,7 +567,7 @@
                     </div>
                     
                     <div class="mt-4">
-                        <a href="../assets/docs/Color Masterbatch.pdf" target="_blank" class="btn btn-outline-primary me-2"><i class="fas fa-file-pdf"></i> <span class="lang-en">Download TDS</span><span class="lang-cn">下载TDS</span></a>
+                        <a href="color-masterbatch/" class="btn btn-primary me-2"><i class="fas fa-search-plus"></i> <span class="lang-en">Explore Gallery & TDS</span><span class="lang-cn">查看图库与TDS</span></a>
                         <a href="../contact/" class="btn btn-quote"><span class="lang-en">Request Color Match</span><span class="lang-cn">申请配色</span></a>
                     </div>
                 </div>
@@ -661,13 +663,122 @@
                     </div>
 
                     <div class="mt-4">
-                         <a href="../assets/docs/Optical Brightener Masterbatch.pdf" target="_blank" class="btn btn-outline-primary me-2 mb-2"><i class="fas fa-file-pdf"></i> <span class="lang-en">Optical Brightener TDS</span><span class="lang-cn">荧光增白剂 TDS</span></a>
-                         <a href="../assets/docs/Reversible Thermochromic Masterbatch.pdf" target="_blank" class="btn btn-outline-primary me-2 mb-2"><i class="fas fa-file-pdf"></i> <span class="lang-en">Thermochromic TDS</span><span class="lang-cn">温变粉 TDS</span></a>
+                         <a href="functional-masterbatch/" class="btn btn-primary me-2 mb-2"><i class="fas fa-search-plus"></i> <span class="lang-en">Explore Full Gallery & TDS</span><span class="lang-cn">查看图库与TDS</span></a>
                          <a href="../contact/" class="btn btn-quote mb-2"><span class="lang-en">Inquire Now</span><span class="lang-cn">立即咨询</span></a>
                     </div>
                 </div>
             </div>
 
+            <hr class="my-5">
+
+            <!-- Specialty Masterbatches Grid -->
+            <div class="row g-4 mb-5">
+                <div class="col-12 text-center mb-4">
+                    <h2 class="display-6 fw-bold"><span class="lang-en">Specialty Masterbatches</span><span class="lang-cn">特殊功能母粒</span></h2>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 shadow-sm border-0 text-center p-3">
+                        <div class="card-body">
+                            <i class="fas fa-fill-drip fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Filler Masterbatch</h5>
+                            <p class="small text-muted">Cost-reduction with CaCO3/BaSO4.</p>
+                            <a href="filler-masterbatch/" class="btn btn-sm btn-outline-primary rounded-pill">View Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 shadow-sm border-0 text-center p-3">
+                        <div class="card-body">
+                            <i class="fas fa-water fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">Flow Masterbatch</h5>
+                            <p class="small text-muted">Marble & Wood Grain effects.</p>
+                            <a href="flow-masterbatch/" class="btn btn-sm btn-outline-primary rounded-pill">View Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 shadow-sm border-0 text-center p-3">
+                        <div class="card-body">
+                            <i class="fas fa-wind fa-3x text-secondary mb-3"></i>
+                            <h5 class="card-title">Defoaming</h5>
+                            <p class="small text-muted">Eliminate moisture & bubbles.</p>
+                            <a href="defoaming-masterbatch/" class="btn btn-sm btn-outline-primary rounded-pill">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 shadow-sm border-0 text-center p-3">
+                        <div class="card-body">
+                            <i class="fas fa-vial fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">PETG Color</h5>
+                            <p class="small text-muted">High-transparency for cosmetics.</p>
+                            <a href="petg-color-masterbatch/" class="btn btn-sm btn-outline-primary rounded-pill">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Full Product Catalog (Dynamic) -->
+    <section class="section-padding bg-white" id="full-catalog">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-5 fw-bold mb-3"><span class="lang-en">Full Product Catalog</span><span class="lang-cn">全线产品目录</span></h2>
+                    <p class="lead text-muted"><span class="lang-en">Browse our complete range of high-performance masterbatches. Use the filters below to find the perfect solution for your specific application.</span><span class="lang-cn">浏览我们的全系列高性能母粒。使用下方过滤器查找适合您特定应用的解决方案。</span></p>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="row mb-5 g-3 justify-content-center">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-text bg-primary text-white border-0"><i class="fas fa-filter"></i></span>
+                        <select id="category-filter" class="form-select border-0 shadow-sm">
+                            <option value="all">All Categories (所有分类)</option>
+                            <option value="Black color masterbatch">Black Masterbatch (黑色母)</option>
+                            <option value="White color masterbatch">White Masterbatch (白色母)</option>
+                            <option value="color masterbatch">Color Masterbatch (彩色母)</option>
+                            <option value="PETG color masterbatch">PETG/APET Masterbatch</option>
+                            <option value="flow masterbatch">Flow/Marble Masterbatch (流纹母)</option>
+                            <option value="Filler masterbatch">Filler Masterbatch (填充母)</option>
+                            <option value="Defoaming masterbatch">Defoaming Masterbatch (消泡剂)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-text bg-primary text-white border-0"><i class="fas fa-microchip"></i></span>
+                        <select id="material-filter" class="form-select border-0 shadow-sm">
+                            <option value="all">All Materials (所有材质)</option>
+                            <option value="PE">PE</option>
+                            <option value="PP">PP</option>
+                            <option value="ABS">ABS</option>
+                            <option value="PETG">PETG/APET</option>
+                            <option value="PC">PC</option>
+                            <option value="PA">PA</option>
+                            <option value="HIPS">HIPS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button id="reset-filters" class="btn btn-outline-secondary w-100 border-0 shadow-sm h-100">
+                        <i class="fas fa-undo me-2"></i>Reset
+                    </button>
+                </div>
+            </div>
+
+            <!-- Rendering Target -->
+            <div id="product-list-container" class="row g-4">
+                <!-- Products will be rendered here by load-products.js -->
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
