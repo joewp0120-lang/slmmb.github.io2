@@ -131,14 +131,117 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // WhatsApp Floating Button Injection
     (function() {
+        if (document.getElementById('floating-cta')) return;
+
+        var wrapper = document.createElement('div');
+        wrapper.id = 'floating-cta';
+        wrapper.className = 'floating-cta';
+
         var whatsappLink = document.createElement('a');
         whatsappLink.href = 'https://wa.me/8618027593021';
         whatsappLink.className = 'whatsapp-float';
         whatsappLink.target = '_blank';
+        whatsappLink.rel = 'noopener';
+        whatsappLink.setAttribute('aria-label', 'Chat on WhatsApp');
         whatsappLink.innerHTML = '<i class="fab fa-whatsapp whatsapp-icon"></i>';
-        document.body.appendChild(whatsappLink);
+
+        var sampleLink = document.createElement('a');
+        sampleLink.href = '/contact/?intent=sample';
+        sampleLink.className = 'sample-float';
+        sampleLink.setAttribute('aria-label', 'Get Free Sample');
+        sampleLink.innerHTML = '<i class="fas fa-gift me-2"></i><span class="sample-float-text">Get Free Sample</span>';
+
+        wrapper.appendChild(whatsappLink);
+        wrapper.appendChild(sampleLink);
+        document.body.appendChild(wrapper);
+    })();
+
+    (function() {
+        var path = window.location.pathname || '';
+        var isProductsArea = path.indexOf('/products/') !== -1;
+        var isListingPage = /\/products\/($|index\.html$)/.test(path);
+        if (!isProductsArea || isListingPage) return;
+
+        if (document.getElementById('product-inquiry')) return;
+
+        var section = document.createElement('section');
+        section.className = 'section-padding bg-light';
+        section.id = 'product-inquiry';
+
+        var currentUrl = window.location.href;
+        var productName = '';
+        var h1 = document.querySelector('h1');
+        if (h1) {
+            productName = (h1.textContent || '').trim().replace(/\s+/g, ' ');
+        }
+
+        section.innerHTML =
+            '<div class="container">' +
+                '<div class="row justify-content-center">' +
+                    '<div class="col-lg-8">' +
+                        '<div class="bg-white p-4 p-md-5 rounded shadow-sm">' +
+                            '<h3 class="mb-3">' +
+                                '<span class="lang-en">Request a Quote or Free Sample</span>' +
+                                '<span class="lang-cn">获取报价或免费样品</span>' +
+                            '</h3>' +
+                            '<p class="text-muted mb-4">' +
+                                '<span class="lang-en">Tell us your process and target application. Our team will reply with pricing, lead time, and recommendations.</span>' +
+                                '<span class="lang-cn">请告知工艺与目标应用，我们将回复报价、交期与建议方案。</span>' +
+                            '</p>' +
+                            '<form class="inquiry-form" method="POST" action="https://formsubmit.co/salesl.dorothy@gmail.com">' +
+                                '<input type="hidden" name="_captcha" value="false">' +
+                                '<input type="hidden" name="_next" value="https://slmmb.com/thank-you/">' +
+                                '<input type="hidden" name="Page" value="' + encodeURIComponent(currentUrl) + '">' +
+                                (productName ? '<input type="hidden" name="Product" value="' + productName.replace(/"/g, '&quot;') + '">' : '') +
+                                '<div class="d-none">' +
+                                    '<label>Leave this field empty</label>' +
+                                    '<input type="text" name="company_website" autocomplete="off" tabindex="-1">' +
+                                '</div>' +
+                                '<div class="row">' +
+                                    '<div class="col-md-6 mb-3">' +
+                                        '<label class="form-label"><span class="lang-en">Name</span><span class="lang-cn">姓名</span></label>' +
+                                        '<input type="text" class="form-control" name="Name" required>' +
+                                    '</div>' +
+                                    '<div class="col-md-6 mb-3">' +
+                                        '<label class="form-label"><span class="lang-en">Email</span><span class="lang-cn">邮箱</span></label>' +
+                                        '<input type="email" class="form-control" name="Email" required>' +
+                                    '</div>' +
+                                '</div>' +
+                                '<div class="mb-3">' +
+                                    '<label class="form-label"><span class="lang-en">Country</span><span class="lang-cn">国家</span></label>' +
+                                    '<input type="text" class="form-control" name="Country" placeholder="e.g., Mexico">' +
+                                '</div>' +
+                                '<div class="mb-3">' +
+                                    '<label class="form-label"><span class="lang-en">Message</span><span class="lang-cn">留言</span></label>' +
+                                    '<textarea class="form-control" rows="5" name="Message" required></textarea>' +
+                                '</div>' +
+                                '<button type="submit" class="btn btn-quote btn-lg w-100">' +
+                                    '<span class="lang-en">Send Inquiry</span>' +
+                                    '<span class="lang-cn">发送询盘</span>' +
+                                '</button>' +
+                            '</form>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+
+        var footer = document.querySelector('footer');
+        if (footer && footer.parentNode) {
+            footer.parentNode.insertBefore(section, footer);
+        } else {
+            document.body.appendChild(section);
+        }
+
+        var inquiryForms = document.querySelectorAll('form.inquiry-form');
+        inquiryForms.forEach(function(form) {
+            form.addEventListener('submit', function(e) {
+                var honeypot = form.querySelector('input[name="company_website"]');
+                if (honeypot && honeypot.value) {
+                    e.preventDefault();
+                }
+            });
+        });
     })();
 
     var heroCarousel = document.getElementById('heroCarousel');
