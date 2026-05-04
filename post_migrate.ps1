@@ -26,8 +26,8 @@ if (Test-Path $sitemapPath) {
     # Exclude .html if it is inside lastmod or something else? No, usually in <loc>
     # <loc>https://slmmb.com/products.html</loc>
     
-    $content = $content -replace 'https://slmmb.com/index.html', 'https://slmmb.com/'
-    $content = $content -replace 'https://slmmb.com/([a-zA-Z0-9-]+)\.html', 'https://slmmb.com/$1/'
+    $content = $content -replace 'https://slmmb.com/index.html', 'https://www.slmmb.com/'
+    $content = $content -replace 'https://slmmb.com/([a-zA-Z0-9-]+)\.html', 'https://www.slmmb.com/$1/'
     
     $content | Set-Content $sitemapPath -Encoding UTF8
     Write-Host "Updated sitemap.xml"

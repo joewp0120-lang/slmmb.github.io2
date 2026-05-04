@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             '</p>' +
                             '<form class="inquiry-form" method="POST" action="https://formsubmit.co/salesl.dorothy@gmail.com">' +
                                 '<input type="hidden" name="_captcha" value="false">' +
-                                '<input type="hidden" name="_next" value="https://slmmb.com/thank-you/">' +
+                                '<input type="hidden" name="_next" value="https://www.slmmb.com/thank-you/">' +
                                 '<input type="hidden" name="Page" value="' + encodeURIComponent(currentUrl) + '">' +
                                 (productName ? '<input type="hidden" name="Product" value="' + productName.replace(/"/g, '&quot;') + '">' : '') +
                                 '<div class="d-none">' +

@@ -70,10 +70,10 @@ foreach ($page in $pages) {
         }
         
         # 3. Canonical/OG/JSON-LD URLs
-        # https://slmmb.com/page.html -> https://slmmb.com/page/
+        # https://slmmb.com/page.html -> https://www.slmmb.com/page/
         foreach ($p in $pages) {
             $pat = 'https://slmmb\.com/' + [regex]::Escape("$p.html")
-            $content = Regex-Replace-Callback -InputString $content -Pattern $pat -Callback { return "https://slmmb.com/$p/" }
+            $content = Regex-Replace-Callback -InputString $content -Pattern $pat -Callback { return "https://www.slmmb.com/$p/" }
         }
         
         # Write
@@ -106,12 +106,12 @@ if (Test-Path $indexPath) {
     $content = $content -replace 'href="index.html"', 'href="./"'
     
     # Update canonical if it points to index.html
-    $content = $content -replace 'href="https://slmmb.com/index.html"', 'href="https://slmmb.com/"'
+    $content = $content -replace 'href="https://slmmb.com/index.html"', 'href="https://www.slmmb.com/"'
     
     # Update absolute URLs for other pages
     foreach ($p in $pages) {
         $pat = 'https://slmmb\.com/' + [regex]::Escape("$p.html")
-        $content = Regex-Replace-Callback -InputString $content -Pattern $pat -Callback { return "https://slmmb.com/$p/" }
+        $content = Regex-Replace-Callback -InputString $content -Pattern $pat -Callback { return "https://www.slmmb.com/$p/" }
     }
     
     $content | Set-Content $indexPath -Encoding UTF8
@@ -140,7 +140,7 @@ if (Test-Path $blogDir) {
             
             # Absolute URLs
             $pat = 'https://slmmb\.com/' + [regex]::Escape("$p.html")
-            $content = Regex-Replace-Callback -InputString $content -Pattern $pat -Callback { return "https://slmmb.com/$p/" }
+            $content = Regex-Replace-Callback -InputString $content -Pattern $pat -Callback { return "https://www.slmmb.com/$p/" }
         }
         
         $content | Set-Content $file.FullName -Encoding UTF8

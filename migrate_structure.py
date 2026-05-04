@@ -121,7 +121,7 @@ for filename in files_to_migrate:
     new_content = update_resources(new_content)
     
     # Special fix for canonical tags
-    canonical_pattern = r'(<link rel="canonical" href="https://slmmb.com/)' + re.escape(filename) + r'(")'
+    canonical_pattern = r'(<link rel="canonical" href="https://www.slmmb.com/)' + re.escape(filename) + r'(")'
     new_content = re.sub(canonical_pattern, r'\1' + folder_name + r'/\2', new_content)
     
     new_path = os.path.join(new_folder, "index.html")
@@ -135,7 +135,7 @@ with open(root_index, 'r', encoding='utf-8') as f:
     content = f.read()
 
 new_content = update_content(content, current_depth=0)
-new_content = new_content.replace('href="https://slmmb.com/index.html"', 'href="https://slmmb.com/"')
+new_content = new_content.replace('href="https://www.slmmb.com/index.html"', 'href="https://www.slmmb.com/"')
 shutil.copy(root_index, root_index + ".bak")
 with open(root_index, 'w', encoding='utf-8') as f:
     f.write(new_content)
