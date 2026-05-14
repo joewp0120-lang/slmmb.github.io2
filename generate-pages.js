@@ -117,6 +117,95 @@ function buildInquiryToken(productCode) {
   return crypto.createHash('sha1').update(String(productCode ?? '')).digest('hex').slice(0, 10);
 }
 
+function splitMaterials(materialsRaw) {
+  return String(materialsRaw ?? '')
+    .split(/[,\|;]+|\/+/g)
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function inferCarrierResin(materialsRaw, folderSlug) {
+  const materials = splitMaterials(materialsRaw).map((m) => m.toUpperCase());
+
+  if (folderSlug === 'petg-color-masterbatch') return 'PETG / APET';
+
+  const has = (token) => materials.some((m) => m.includes(token));
+  const hits = [];
+
+  if (has('ABS')) hits.push('ABS');
+  if (has('PC')) hits.push('PC');
+  if (has('PETG')) hits.push('PETG');
+  if (has('PET')) hits.push('PET');
+  if (has('PA')) hits.push('PA');
+  if (has('POM')) hits.push('POM');
+  if (has('PBT')) hits.push('PBT');
+  if (has('PP')) hits.push('PP');
+  if (has('PE') || has('HDPE') || has('LDPE') || has('LLDPE')) hits.push('PE');
+
+  const unique = Array.from(new Set(hits));
+  if (unique.length >= 2) return `${unique.slice(0, 2).join(' / ')} (customizable)`;
+  if (unique.length === 1) return unique[0];
+
+  if (folderSlug === 'black-masterbatch' || folderSlug === 'white-masterbatch' || folderSlug === 'color-masterbatch') {
+    return 'PE / PP (customizable)';
+  }
+
+  return 'Customizable';
+}
+
+function inferDosage(folderSlug) {
+  if (folderSlug === 'black-masterbatch') return '1% - 3%';
+  if (folderSlug === 'white-masterbatch') return '2% - 5%';
+  if (folderSlug === 'color-masterbatch') return '2% - 6%';
+  if (folderSlug === 'petg-color-masterbatch') return '2% - 6%';
+  if (folderSlug === 'flow-masterbatch') return '1% - 3%';
+  if (folderSlug === 'defoaming-masterbatch') return '1% - 3%';
+  if (folderSlug === 'functional-masterbatch') return '1% - 4%';
+  if (folderSlug === 'filler-masterbatch') return '10% - 40%';
+  return '2% - 5%';
+}
+
+function inferHeatResistance(materialsRaw, folderSlug) {
+  const materials = splitMaterials(materialsRaw).map((m) => m.toUpperCase());
+  const hasHighTemp = materials.some((m) => m.includes('PC') || m.includes('PA') || m.includes('PBT') || m.includes('POM') || m.includes('PET'));
+  if (folderSlug === 'petg-color-masterbatch') return '220°C - 280°C';
+  if (hasHighTemp) return '240°C - 300°C';
+  return '200°C - 280°C';
+}
+
+function inferApplications(product, folderSlug) {
+  const text = `${product?.english_name ?? ''} ${product?.chinese_name ?? ''} ${product?.category ?? ''}`.toLowerCase();
+  const candidates = [];
+
+  const includeIf = (cond, value) => {
+    if (cond) candidates.push(value);
+  };
+
+  includeIf(text.includes('injection') || text.includes('注塑'), 'Injection Molding');
+  includeIf(text.includes('blow') || text.includes('吹膜') || text.includes('吹塑'), 'Blow Film');
+  includeIf(text.includes('extrusion') || text.includes('挤出'), 'Extrusion');
+  includeIf(text.includes('pipe') || text.includes('管道'), 'Pipe Extrusion');
+  includeIf(text.includes('film') || text.includes('薄膜'), 'Film');
+
+  const unique = Array.from(new Set(candidates));
+  if (unique.length) return unique.slice(0, 3).join(', ');
+
+  if (folderSlug === 'black-masterbatch' || folderSlug === 'white-masterbatch' || folderSlug === 'color-masterbatch') {
+    return 'Injection Molding, Blow Film, Extrusion';
+  }
+
+  if (folderSlug === 'filler-masterbatch') return 'Injection Molding, Extrusion';
+  if (folderSlug === 'defoaming-masterbatch') return 'Blow Film, Extrusion';
+  if (folderSlug === 'petg-color-masterbatch') return 'Injection Molding, Extrusion';
+  return 'Injection Molding, Extrusion';
+}
+
+function inferCompliance(product) {
+  const raw = String(product?.certifications ?? product?.certification ?? '').trim();
+  if (raw) return raw;
+  return 'FDA, RoHS, REACH, NOM';
+}
+
 function renderProductPage({ product, folderSlug, filename }) {
   const englishName = String(product.english_name ?? '').trim() || 'Masterbatch Product';
   const chineseName = String(product.chinese_name ?? '').trim();
@@ -140,6 +229,12 @@ function renderProductPage({ product, folderSlug, filename }) {
   const canonicalPath = `/products/${folderSlug}/${filename}`;
   const canonicalUrl = `${SITE_URL}${canonicalPath}`;
 
+  const carrierResin = inferCarrierResin(materials, folderSlug);
+  const dosage = inferDosage(folderSlug);
+  const heatResistance = inferHeatResistance(materials, folderSlug);
+  const application = inferApplications(product, folderSlug);
+  const compliance = inferCompliance(product);
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -148,29 +243,63 @@ function renderProductPage({ product, folderSlug, filename }) {
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
   <meta name="keywords" content="${escapeHtml(keywords)}">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
 </head>
-<body>
-  <main>
-    <h1>${escapeHtml(englishName)} ${escapeHtml(productCode)}</h1>
+<body class="lang-en">
+  <main class="container py-5">
+    <h1 class="mb-4">${escapeHtml(englishName)} ${escapeHtml(productCode)}</h1>
 
-    <section>
-      <p><strong>Product code:</strong> ${escapeHtml(productCode)}</p>
-      ${category ? `<p><strong>Category:</strong> ${escapeHtml(category)}</p>` : ''}
-      ${chineseName ? `<p><strong>Chinese name:</strong> ${escapeHtml(chineseName)}</p>` : ''}
-      ${materials ? `<p><strong>Applicable materials:</strong> ${escapeHtml(materials)}</p>` : ''}
-      ${grade ? `<p><strong>Grade:</strong> ${escapeHtml(grade)}</p>` : ''}
-      ${origin ? `<p><strong>Origin:</strong> ${escapeHtml(origin)}</p>` : ''}
-      ${packaging ? `<p><strong>Packaging:</strong> ${escapeHtml(packaging)}</p>` : ''}
-      ${moq ? `<p><strong>MOQ:</strong> ${escapeHtml(moq)}</p>` : ''}
-      ${hsCode ? `<p><strong>HS code:</strong> ${escapeHtml(hsCode)}</p>` : ''}
-      <p><strong>Target markets:</strong> Mexico, Brazil, Indonesia</p>
-      <p><strong>Certifications:</strong> FDA, NOM, INMETRO</p>
-      <p><strong>Official URL:</strong> <a href="${escapeHtml(canonicalUrl)}">${escapeHtml(canonicalUrl)}</a></p>
+    <section class="mb-4">
+      <h2 class="h4 mb-3">Product Overview</h2>
+      <div class="geo-spec-table-wrap">
+        <table class="geo-spec-table">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Product Code</th><td>${escapeHtml(productCode)}</td></tr>
+            ${category ? `<tr><th scope="row">Category</th><td>${escapeHtml(category)}</td></tr>` : ''}
+            ${chineseName ? `<tr><th scope="row">Chinese Name</th><td>${escapeHtml(chineseName)}</td></tr>` : ''}
+            ${materials ? `<tr><th scope="row">Applicable Materials</th><td>${escapeHtml(materials)}</td></tr>` : ''}
+            ${grade ? `<tr><th scope="row">Grade</th><td>${escapeHtml(grade)}</td></tr>` : ''}
+            ${origin ? `<tr><th scope="row">Origin</th><td>${escapeHtml(origin)}</td></tr>` : ''}
+            ${packaging ? `<tr><th scope="row">Packaging</th><td>${escapeHtml(packaging)}</td></tr>` : ''}
+            ${moq ? `<tr><th scope="row">MOQ</th><td>${escapeHtml(moq)}</td></tr>` : ''}
+            ${hsCode ? `<tr><th scope="row">HS Code</th><td>${escapeHtml(hsCode)}</td></tr>` : ''}
+            <tr><th scope="row">Official URL</th><td><a href="${escapeHtml(canonicalUrl)}">${escapeHtml(canonicalUrl)}</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mb-4">
+      <h2 class="h4 mb-3">Technical Specifications</h2>
+      <div class="geo-spec-table-wrap">
+        <table class="geo-spec-table">
+          <thead>
+            <tr>
+              <th scope="col">Parameter</th>
+              <th scope="col">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Carrier Resin</th><td>${escapeHtml(carrierResin)}</td></tr>
+            <tr><th scope="row">Addition Rate / Dosage</th><td>${escapeHtml(dosage)}</td></tr>
+            <tr><th scope="row">Heat Resistance</th><td>${escapeHtml(heatResistance)}</td></tr>
+            <tr><th scope="row">Application</th><td>${escapeHtml(application)}</td></tr>
+            <tr><th scope="row">Compliance</th><td>${escapeHtml(compliance)}</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section>
-      <h2>Request a Quote</h2>
-      <form method="POST" action="https://formsubmit.co/salesl.dorothy@gmail.com">
+      <h2 class="h4 mb-3">Request a Quote</h2>
+      <form method="POST" action="https://formsubmit.co/salesl.dorothy@gmail.com" class="geo-inquiry-form">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="${escapeHtml(nextUrl)}">
         <input type="hidden" name="_subject" value="${escapeHtml(formSubject)}">
@@ -181,19 +310,23 @@ function renderProductPage({ product, folderSlug, filename }) {
           <label>Leave this field empty</label>
           <input type="text" name="company_website" autocomplete="off" tabindex="-1">
         </div>
-        <p>
-          <label>Name<br><input name="Name" required></label>
-        </p>
-        <p>
-          <label>Email<br><input type="email" name="Email" required></label>
-        </p>
-        <p>
-          <label>Country<br><input name="Country"></label>
-        </p>
-        <p>
-          <label>Message<br><textarea name="Message" rows="6" required></textarea></label>
-        </p>
-        <button type="submit">Send Inquiry</button>
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input class="form-control" name="Name" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input class="form-control" type="email" name="Email" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Country</label>
+          <input class="form-control" name="Country">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Message</label>
+          <textarea class="form-control" name="Message" rows="6" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Send Inquiry</button>
       </form>
     </section>
   </main>
@@ -237,4 +370,3 @@ function main() {
 }
 
 main();
-
