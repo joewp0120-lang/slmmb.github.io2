@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
         wrapper.className = 'floating-cta';
 
         var whatsappLink = document.createElement('a');
-        whatsappLink.href = 'https://wa.me/8618027593021';
+        whatsappLink.href = 'https://wa.me/8618027593021?text=Hi%20SLMMB,%20I%20found%20your%20masterbatch%20from%20ChatGPT%20and%20would%20like%20to%20get%20a%20quote/sample%20for%20my%20plastic%20factory.';
         whatsappLink.className = 'whatsapp-float';
         whatsappLink.target = '_blank';
         whatsappLink.rel = 'noopener';

@@ -66,10 +66,63 @@ body {
     justify-content: center;
     transition: all 0.3s ease;
     text-decoration: none !important;
+    position: relative;
+    will-change: transform;
 }
 
 .floating-cta .whatsapp-float {
     position: static;
+}
+
+.floating-cta .whatsapp-float {
+    animation: whatsappPulse 5s ease-in-out infinite;
+}
+
+.floating-cta .whatsapp-float::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: inherit;
+    background: rgba(37, 211, 102, 0.22);
+    filter: blur(8px);
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.floating-cta .whatsapp-float::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: inherit;
+    border: 1px solid rgba(37, 211, 102, 0.55);
+    opacity: 0;
+    transform: scale(0.94);
+    pointer-events: none;
+}
+
+@keyframes whatsappPulse {
+    0% { transform: scale(1); }
+    84% { transform: scale(1); }
+    88% { transform: scale(1.08); }
+    92% { transform: scale(1.02); }
+    96% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes whatsappHalo {
+    0% { opacity: 0; transform: scale(0.92); }
+    84% { opacity: 0; transform: scale(0.92); }
+    88% { opacity: 1; transform: scale(1); }
+    92% { opacity: 0.45; transform: scale(1.06); }
+    96% { opacity: 0; transform: scale(1.1); }
+    100% { opacity: 0; transform: scale(1.1); }
+}
+
+.floating-cta .whatsapp-float::before,
+.floating-cta .whatsapp-float::after {
+    animation: whatsappHalo 5s ease-in-out infinite;
 }
 
 .whatsapp-float:hover {
@@ -257,6 +310,46 @@ body {
     background-color: #00bf79;
     transform: translateY(-2px);
     box-shadow: 0 14px 30px rgba(0, 208, 132, 0.35);
+}
+
+.hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+.btn-hero-solid {
+    background-color: var(--primary-color);
+    color: #ffffff !important;
+    border-radius: 28px;
+    padding: 12px 28px;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-hero-solid:hover {
+    background-color: #001a38;
+    border-color: rgba(255,255,255,0.28);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+.btn-hero-ghost {
+    background: transparent;
+    color: #ffffff !important;
+    border-radius: 28px;
+    padding: 12px 28px;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.65);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-hero-ghost:hover {
+    background-color: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.82);
 }
 
 .trust-strip {
@@ -782,6 +875,15 @@ footer a:hover {
     .hero-single .hero-subtitle {
         font-size: 1.05rem;
         margin-bottom: 18px;
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-cta-group .btn {
+        width: 100%;
     }
 
     .btn-hero-primary.btn-lg {
