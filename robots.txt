@@ -24,4 +24,3 @@ User-agent: Barkrowler
 Disallow: /
 
 Sitemap: https://www.slmmb.com/sitemap.xml
-Sitemap: https://www.slmmb.com/sitemap.xml

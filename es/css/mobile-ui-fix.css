@@ -1,0 +1,85 @@
+@media (max-width: 991.98px) {
+    .navbar,
+    .navbar.fixed-top,
+    .navbar-collapse,
+    .dropdown-menu {
+        z-index: 1400;
+    }
+
+    .navbar-collapse {
+        position: fixed;
+        top: 78px;
+        left: 12px;
+        right: 12px;
+        max-height: calc(100vh - 84px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding-bottom: 14px;
+    }
+
+    .navbar-collapse.collapsing,
+    .navbar-collapse.show {
+        display: block !important;
+    }
+
+    .navbar-nav {
+        align-items: stretch !important;
+    }
+
+    .navbar-nav .nav-link,
+    .navbar-nav .dropdown-item,
+    .navbar-nav .mega-link {
+        text-align: left;
+    }
+
+    .navbar-nav .btn-quote {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        white-space: normal;
+        line-height: 1.25;
+        padding: 12px 14px;
+    }
+
+    .navbar-nav .nav-item.ms-2 {
+        margin-left: 0 !important;
+        margin-top: 8px;
+    }
+
+    .navbar-nav .nav-item.ms-2 {
+        display: none !important;
+    }
+
+    .floating-cta {
+        display: none !important;
+    }
+
+    .hero-cta-group,
+    .bg-primary-custom .d-flex.flex-wrap.gap-3 {
+        padding-bottom: 56px;
+    }
+
+    .trust-strip {
+        overflow-x: hidden;
+    }
+
+    .trust-strip .container,
+    .trust-strip .d-flex,
+    .trust-badges {
+        min-width: 0;
+    }
+
+    .trust-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+}
+
+@media (max-height: 720px) and (max-width: 991.98px) {
+    .floating-cta {
+        bottom: calc(10px + env(safe-area-inset-bottom));
+    }
+}

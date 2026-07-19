@@ -1,0 +1,249 @@
+html[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .navbar .container,
+html[dir="rtl"] .container-fluid {
+    direction: rtl;
+}
+
+html[dir="rtl"] .navbar-brand,
+html[dir="rtl"] .nav-link,
+html[dir="rtl"] .dropdown-item,
+html[dir="rtl"] .mega-title,
+html[dir="rtl"] .mega-link,
+html[dir="rtl"] .hero-section,
+html[dir="rtl"] .hero-content,
+html[dir="rtl"] .hero-subtitle,
+html[dir="rtl"] .section-title,
+html[dir="rtl"] .card,
+html[dir="rtl"] .feature-icon-box,
+html[dir="rtl"] .lead-magnet-mockup,
+html[dir="rtl"] .table,
+html[dir="rtl"] .accordion-button,
+html[dir="rtl"] .dropdown-menu,
+html[dir="rtl"] .form-control,
+html[dir="rtl"] .form-select,
+html[dir="rtl"] .form-label {
+    text-align: right;
+}
+
+html[dir="rtl"] .navbar-brand {
+    margin-right: 0;
+    margin-left: 0;
+    text-align: right;
+}
+
+html[dir="rtl"] .navbar-nav {
+    padding-right: 0;
+}
+
+html[dir="rtl"] .navbar-nav.ms-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+html[dir="rtl"] .navbar-nav .nav-item.ms-2,
+html[dir="rtl"] .ms-2 {
+    margin-right: .5rem !important;
+    margin-left: 0 !important;
+}
+
+html[dir="rtl"] .me-1 { margin-left: .25rem !important; margin-right: 0 !important; }
+html[dir="rtl"] .me-2 { margin-left: .5rem !important; margin-right: 0 !important; }
+html[dir="rtl"] .me-3 { margin-left: 1rem !important; margin-right: 0 !important; }
+html[dir="rtl"] .me-4 { margin-left: 1.5rem !important; margin-right: 0 !important; }
+
+html[dir="rtl"] .ms-1 { margin-right: .25rem !important; margin-left: 0 !important; }
+html[dir="rtl"] .ms-2 { margin-right: .5rem !important; margin-left: 0 !important; }
+html[dir="rtl"] .ms-3 { margin-right: 1rem !important; margin-left: 0 !important; }
+html[dir="rtl"] .ms-4 { margin-right: 1.5rem !important; margin-left: 0 !important; }
+
+html[dir="rtl"] .ps-3 { padding-right: 1rem !important; padding-left: 0 !important; }
+html[dir="rtl"] .ps-4 { padding-right: 1.5rem !important; padding-left: 0 !important; }
+html[dir="rtl"] .ps-5 { padding-right: 3rem !important; padding-left: 0 !important; }
+
+@media (min-width: 768px) {
+    html[dir="rtl"] .ps-md-5 {
+        padding-right: 3rem !important;
+        padding-left: 0 !important;
+    }
+}
+
+html[dir="rtl"] .text-start {
+    text-align: right !important;
+}
+
+html[dir="rtl"] .text-end {
+    text-align: left !important;
+}
+
+html[dir="rtl"] .dropdown-menu,
+html[dir="rtl"] .dropdown-menu.dropdown-menu-end,
+html[dir="rtl"] .dropdown-menu.mega-menu {
+    left: auto;
+    right: 0;
+    transform-origin: top right;
+}
+
+html[dir="rtl"] .dropdown-menu[data-bs-popper] {
+    right: 0;
+    left: auto;
+    margin-top: .5rem;
+}
+
+html[dir="rtl"] .dropdown-menu .row {
+    direction: rtl;
+}
+
+html[dir="rtl"] .dropdown-toggle::after {
+    margin-right: .55rem;
+    margin-left: 0;
+}
+
+html[dir="rtl"] .navbar-toggler {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+html[dir="rtl"] .navbar,
+html[dir="rtl"] .navbar.fixed-top,
+html[dir="rtl"] .navbar-collapse,
+html[dir="rtl"] .dropdown-menu {
+    z-index: 1400;
+}
+
+html[dir="rtl"] .btn,
+html[dir="rtl"] .hero-cta-group {
+    text-align: center;
+}
+
+html[dir="rtl"] .hero-cta-group {
+    align-items: flex-end;
+}
+
+html[dir="rtl"] .floating-cta {
+    left: 24px;
+    right: auto;
+    align-items: flex-start;
+    z-index: 1200;
+    max-width: min(240px, calc(100vw - 24px));
+}
+
+html[dir="rtl"] .floating-cta .whatsapp-float,
+html[dir="rtl"] .floating-cta .sample-float {
+    text-align: center;
+}
+
+html[dir="rtl"] .floating-cta .sample-float {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    gap: .5rem;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+html[dir="rtl"] .floating-cta .sample-float i {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex: 0 0 auto;
+}
+
+html[dir="rtl"] .floating-cta .sample-float .sample-float-text {
+    display: inline-block;
+    line-height: 1.25;
+}
+
+html[dir="rtl"] .btn-quote,
+html[dir="rtl"] .hero-cta-group .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+html[dir="rtl"] input[type="email"],
+html[dir="rtl"] input[type="tel"],
+html[dir="rtl"] input[type="url"],
+html[dir="rtl"] input[type="number"] {
+    direction: ltr;
+    text-align: left;
+}
+
+html[dir="rtl"] .breadcrumb,
+html[dir="rtl"] .list-unstyled,
+html[dir="rtl"] ul,
+html[dir="rtl"] ol {
+    padding-right: 0;
+}
+
+html[dir="rtl"] .list-unstyled.ps-3,
+html[dir="rtl"] ul.ps-3,
+html[dir="rtl"] ol.ps-3 {
+    padding-right: 1rem !important;
+}
+
+@media (max-width: 991.98px) {
+    html[dir="rtl"] .navbar-collapse {
+        text-align: right;
+    }
+
+    html[dir="rtl"] .navbar-nav {
+        align-items: stretch !important;
+    }
+
+    html[dir="rtl"] .navbar-nav .nav-link,
+    html[dir="rtl"] .navbar-nav .dropdown-item,
+    html[dir="rtl"] .navbar-nav .mega-link,
+    html[dir="rtl"] .navbar-nav .btn-quote {
+        text-align: right;
+    }
+
+    html[dir="rtl"] .navbar-collapse .btn-quote {
+        width: 100%;
+    }
+
+    html[dir="rtl"] .floating-cta {
+        left: 12px;
+        right: auto;
+        max-width: 52px;
+    }
+
+    html[dir="rtl"] .floating-cta .sample-float {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        border-radius: 50%;
+        justify-content: center;
+    }
+
+    html[dir="rtl"] .floating-cta .sample-float .sample-float-text {
+        display: none !important;
+    }
+
+    html[dir="rtl"] .floating-cta .sample-float i {
+        margin: 0 !important;
+    }
+}
+
+@media (max-height: 720px) {
+    html[dir="rtl"] .floating-cta {
+        max-width: 52px;
+    }
+
+    html[dir="rtl"] .floating-cta .sample-float {
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        border-radius: 50%;
+        justify-content: center;
+    }
+
+    html[dir="rtl"] .floating-cta .sample-float .sample-float-text {
+        display: none !important;
+    }
+}

@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
+    (function loadClarityTrackingScript() {
+        if (document.querySelector('script[data-slm-clarity-tracking]')) return;
+
+        var clarityTrackingScript = document.createElement('script');
+        clarityTrackingScript.src = '/js/clarity-tracking.js?v=1.0';
+        clarityTrackingScript.setAttribute('data-slm-clarity-tracking', 'true');
+
+        (document.head || document.body).appendChild(clarityTrackingScript);
+    })();
+
     // Security: Anti-Clickjacking (Frame Buster)
     // Prevents the site from being embedded in an iframe (e.g., for clickjacking or cloning)
     try {

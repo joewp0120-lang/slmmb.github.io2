@@ -330,6 +330,7 @@ function renderProductPage({ product, folderSlug, filename }) {
       </form>
     </section>
   </main>
+  <script src="/js/clarity-tracking.js?v=1.0"></script>
 </body>
 </html>`;
 }
